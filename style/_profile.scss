@@ -1,0 +1,91 @@
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__name{
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 1rem;
+    }
+
+    &__icon{
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    &__img{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 5px solid #E7E7E7;
+        overflow: hidden;
+
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__change{
+        position: absolute;
+        bottom: 0;
+        right: -5%;
+        font-size: 20px;
+        background: #FFFFFF;
+        padding: 5px 10px;
+        border-radius: 50%;
+        color: #999999;
+        border: 3px solid #E7E7E7;
+    }
+
+    &__img-box{
+        position: absolute;
+        inset: 0 0 0 0;
+        max-width: 120px;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &__input-wrapper{
+        @extend .profile;
+        max-width: 510px;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    &__input{
+        width: 100%;
+
+        &-title{
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        &-box{
+            width: 100%;
+            min-height: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 5px 10px;
+            background: #FFFFFF;
+            font-size: 16px;
+        }
+
+        textarea{
+            min-height: 80px;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        &-inline{
+            display: flex;
+            gap: 10px;
+            div{ width: 100%;}
+        }
+    }
+}

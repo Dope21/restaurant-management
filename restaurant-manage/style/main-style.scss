@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$font-main: 'Poppins', sans-serif;
+$color-main: #00FFA3;
+$color-soft: #9FFFDF;
+$color-softer: #F4FAF8;
+$color-text-main: black;
+$color-text-sub: #454D57;  
+$color-border: #CFCFCF;
+$box-shadow: 5px 4px 26px -10px rgba(0, 0, 0, 0.25);
+
+//FONT
+$big-font-size: 2.625rem; 
+$title-font-size: 2.25rem; 
+$h1-font-size: 1.5rem;
+$h2-font-size: 1.25rem;
+$medium-font-size: 1.125rem;
+$normal-font-size: 1rem;
+$small-font-size: .875rem;
+
+$bold-font-weight: 600;
+$medium-font-weight: 500;
+
+//NAVBAR
+$nav-bg: black;
+$nav-color-icon: #FFFFFF;
+$nav-color-text: #FFFFFF;
+$nav-color-link: #FFFFFF;
+$nav-active-bg: $color-main;
+$nav-active-text: black;
+$nav-sub-bg: #FFFFFF;
+$nav-sub-active: #c2c2c2;
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: $color-softer;
+}
+
+*, a, li{
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+
+button,input{
+    font-family: 'Poppins', sans-serif;
+}
+
+.main{
+    position: relative;
+    z-index: 1;
+    margin-left: 330px;
+    padding: 1rem 2rem;
+}
+
+.content{
+    min-height: 100vh;
+}
+
+.black-bg{
+    position: absolute;
+    inset: 0 0 0 0;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease-in-out;
+    z-index: 2;
+}
+
+p.access.denied {
+    font-size: 1.5rem;
+    font-weight: 600;
+    opacity: 70%;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.button{
+    font-size: $normal-font-size;
+    font-weight: $bold-font-weight;
+    color: $color-text-main;
+    background: $color-main;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: .75em 1.5em;
+    box-shadow: $box-shadow;
+    transition: .2s ease-in-out;
+    i{
+        margin-right: 5px;
+    }
+    &:hover{
+        color: $color-main;
+        background: $color-text-main;
+    }
+}
+
+.button-alt{
+    font-size: $normal-font-size;
+    font-weight: $bold-font-weight;
+    color: $color-main;
+    background: $color-text-main;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    padding: .75em 1.5em;
+    box-shadow: $box-shadow;
+    transition: .2s ease-in-out;
+    i{
+        margin-right: 5px;
+    }
+    &:hover{
+        color: $color-text-main;
+        background: $color-main;
+    }
+}
+
+#tableWrapper{
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 1.5rem;
+    background: #FFFFFF;
+    box-shadow: $box-shadow;
+    overflow: auto;
+}
+
+@import './bubble';
+@import './login';
+@import './register';
+@import './module';
+@import './datatable';
+@import './header';
+@import './navbar';
+@import './content';
+@import './home';
+@import './menu';
+@import './order';
+@import './history';
+@import './report';
+@import './setting';
+@import './profile';
+@import './break-point';
+@import './emp_print';
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+    #bill, #bill *{
+      visibility: visible;
+      box-shadow: none;
+    }
+    #bill{
+      position: absolute;
+      top: 0;
+      left: -40%;     
+      width: 350px; 
+    }
+  }

@@ -1,0 +1,40 @@
+<?php require_once("../database/connection.php") ?>        
+<div class="report__menu-title">
+    <p>TOP 5 MENU</p>
+    </div>
+    <table id='report__menu' class='month'>
+        <tr>
+            <th>Menu</th>
+            <th>Dish</th>
+        </tr>
+    <?php 
+        $_month = $_POST['month'];
+        $_year = $_POST['year'];
+
+        // echo $_month.'<br>';
+        // echo $_year.'<br>';
+
+        $sql_menu = "SELECT menu_name, 
+                            SUM(order_details.menu_qt) AS menu_count
+                        FROM order_details
+                        JOIN menu
+                            ON order_details.menu_id = menu.menu_id
+                        JOIN front
+                            ON front.bill_id = order_details.bill_id
+                        WHERE MONTH(order_date) = '$_month'
+                        AND YEAR(order_date) = '$_year'
+                        GROUP BY menu.menu_name
+                        ORDER BY menu_count DESC
+                        LIMIT 5";
+        $query = mysqli_query($conn, $sql_menu);
+        echo mysqli_error($conn);
+        foreach($query as $fav){
+    ?>
+        <tr>
+            <td><?php echo $fav['menu_name'] ?></td>
+            <td class="report__highlight"><?php echo $fav['menu_count'] ?></td>
+        </tr>
+    <?php 
+        }
+    ?>
+</table>

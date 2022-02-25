@@ -1,0 +1,306 @@
+.menu{
+    height: 100vh;
+    
+    &__add{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__search{
+
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        &-text{
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            font-size: $normal-font-size;
+        }
+    }
+
+    &__cate{
+        margin-top: 1rem;
+        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+
+        &-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: $h2-font-size;
+            padding: .5em .8em;
+            font-weight: 500;
+            background: #FFFFFF;
+            color: $color-text-main;
+            box-shadow: $box-shadow;
+            border-radius: 10px;
+            transition: .3s ease-in-out;
+            &:hover{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+
+            &-active{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    &__filter{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    &__items{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    &__item{
+        width: 170px;
+        overflow: hidden;
+        border-radius: 10px;
+        position: relative;
+    
+        &:hover{
+            cursor: pointer;
+            img{
+                transform: scale(1.2);
+            }
+        }
+
+        &-active{
+            display: block!important;
+            visibility: visible!important;
+        }
+    }
+
+    
+    &__img-wrapper{
+        width: 100%;
+        height: 150px;
+        overflow: hidden;
+
+        img{
+            width: 150%;
+            height: 100%;
+            object-fit: cover;
+            transition: .3s;
+            filter: brightness(70%)
+        }
+    }
+
+    &__text{
+        position: absolute;
+        color: #FFFFFF;
+        bottom: 8px;
+        left: 8px;
+    }
+    &__title{
+        font-size: $h2-font-size;
+        font-weight: $bold-font-weight;
+        margin-bottom: 0;
+        width: 100%;
+        padding-right: 8px;
+        overflow: hidden;
+    }
+
+    &__subtitle{
+        margin-bottom: 0;
+        font-size: $small-font-size;
+        margin-top: -.2rem;
+    }
+
+    &__edit{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 38px;
+        height: 38px;
+        font-size: $h2-font-size;
+        text-align: center;
+        color: #FFFFFF;
+        border-radius: 1.25rem;
+        background-color: rgba(0, 0, 0, 0.51);
+        padding-top: .2rem;
+    }
+
+    &__number{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+        text-align: center;
+        color: #fff;
+        border-radius: 1.25rem;
+        padding-top: .2rem;
+        background-color: $color-main;
+        font-weight: bold;
+    }
+
+    &__minus{
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 38px;
+        height: 38px;
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+        border-radius: 1.25rem;
+        background-color: #ff0000;
+        font-weight: bold;
+        z-index: 99999;
+
+        p{
+            margin-top: -0.3rem;
+        }
+    }
+
+    &__update{
+
+        &-back{
+            color: $color-main;
+            text-decoration: underline;
+            i{margin: 0 5px;}
+        }
+
+        &-items{
+            margin-top: 1rem;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        &-item{
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        &-image{
+            position: relative;
+            overflow: hidden;
+            min-width: 275px;
+            height: 270px;
+            border-radius: 10px;
+            box-shadow: $box-shadow;
+
+            img{
+                width: 100%;
+                height: 100%;
+                display: block;
+                object-fit: cover;
+            }
+        }
+
+        &-inputImage{
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            max-width: 50px;
+            height: 50px;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        &-imageChange{
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            font-size: $h2-font-size;
+            border-radius: 5px;
+            padding: 5px 10px;
+            background: #FFFFFF;
+            color: #999999;
+            border: 3px solid #E7E7E7;
+        }
+
+        &-box{
+            display: flex;
+            flex-direction: column;
+            min-width: 250px;
+        }
+
+        &-position{
+            max-width: 525px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            textarea{
+                height: 80px;
+                font-family: $font-main;
+            }
+        }
+
+        &-title{
+            font-weight:$medium-font-weight;
+            margin-bottom: 5px;
+        }
+
+        &-input{
+            max-width: 525px;
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid $color-border;
+            padding: 10px;
+            font-size: $normal-font-size;
+            
+        }
+
+        &-button{
+            align-self: flex-end;
+            display: flex;
+            width: 100%;
+            gap: 5px;
+
+            #updateMenu{
+                font-size: $medium-font-size;
+                border-radius: 5px;
+                border: none;
+                color: $color-text-main;
+                background: $color-main;
+                width: 100%;
+                height: 40px;
+                cursor: pointer;
+                transition: .2s ease-in-out;
+                font-weight: $medium-font-weight;
+            }
+            #deleteMenu{
+                @extend #updateMenu ;
+                background: $color-text-main;
+                color: $color-main;
+                
+            }
+        }
+
+       
+    }
+
+    &__cart-id{
+        font-size: $medium-font-size;
+        font-weight: $medium-font-weight;
+        margin-left: 10px;
+        color: $color-text-sub;
+    }
+
+
+}

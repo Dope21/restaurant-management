@@ -1,0 +1,303 @@
+@media screen and (max-width: 1439px) {
+    .home{
+
+        &__report{
+
+            &-title h3{
+                font-size: $h2-font-size;
+            }
+
+            &-icon{
+                font-size: $normal-font-size;
+                width: 30px;
+                height: 30px;
+            }
+            
+            &-number{
+                font-size: $h1-font-size;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    //NAVBAR
+    .nav{
+        width: 95px;
+        transition: .2s ease-in-out;
+        padding: 1rem;
+        
+        &__logo,
+        &__link{
+            display: none;
+        }
+
+        &-active{
+
+            width: 330px;
+            .nav__logo,
+            .nav__link{
+                display: flex;
+            }
+        }
+
+    }
+
+    //CONTENT
+    .main{
+        margin-left: 95px;
+
+        .black-bg-active{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1023px) {
+
+    .home{
+
+        &__reports{
+            -ms-grid-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__table{
+            flex-direction: column-reverse;
+        }
+
+        
+        &__recent,
+        &__new{
+            max-width: none;
+        }
+    }
+
+    //MENU UPDATE
+    .menu{
+
+        &__update{
+
+            &-item{
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &-image{
+                img{
+                    max-width: 525px;
+                }
+            }
+            
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 767px) {
+
+    .header{
+
+        &__name{
+            font-size: $h2-font-size;
+            margin-right: 10px;
+        }
+
+        &__date{
+            font-size: $small-font-size;
+        }
+
+        &__nav-open{
+            display: inline;
+            margin-right: .75rem;
+        }
+    }
+
+    .home{
+
+        &__table-wrapper{
+            
+            overflow: auto;
+        }
+
+        table{
+            width: 600px;
+        }
+
+        &__table-title h3{
+            font-size: $h2-font-size;
+        }
+
+    }
+
+    .module,
+    .employee__add,
+    .customer__add,
+    .menu__add,
+    .order__add{
+        display: none;
+        visibility: hidden;
+    }
+
+    //NAVBAR
+    .nav{
+        width: 100%;
+        transform: translateX(-100vw);
+
+        &__close{
+            display: block;
+        }
+
+        &-active{
+            transform: none;
+        }
+
+        &__sub-icon{
+            margin-left: 10px;
+        }
+
+        &__items{
+            align-items: center;
+            max-width: 100%;
+        }
+
+        &__item,
+        &__item-drop{
+            max-width: 270px;
+        }
+
+        &__link-not{
+            justify-content: space-between;
+        }
+    }
+
+    //CONTENT
+    .main{
+        margin-left: 0;
+    } 
+    
+    
+}
+
+
+
+@media screen and (max-width: 576px) {
+
+    .main{
+        padding: 1rem;
+    }
+    
+    .header{
+        
+        &__user{
+            display: none;
+        }
+
+        &__name{
+            font-size: $small-font-size;
+        }
+    }
+
+
+    //HOME
+    .home{
+
+        &__reports{
+            -ms-grid-columns: 1fr;
+                grid-template-columns: 1fr;
+        }
+    }
+
+    //MENU
+    .menu{
+        &__items{
+            gap: 5px;
+        }
+        &__item{
+            width: 49%;
+        }
+        &__title{
+            font-size: 1rem;
+        }
+    }
+
+    .login{
+
+        &__title{
+            h1{
+                font-size: 2rem;
+            }
+            p{
+                font-size: 1rem;
+            }
+        }
+
+        &__form{
+            gap: 3rem;
+            padding: 2.5rem 2.1rem;
+        }
+
+        &__inputs{
+            gap: .85rem;
+        }
+
+        &__input{
+            font-size: 1rem;
+        }
+
+        &__btn{
+            input{
+              font-size: 1.2rem;  
+            }
+        }
+    }
+
+    .regis{
+
+        &__title{
+            h1{
+                font-size: 1.2rem;
+            }
+        }
+
+        &__form{
+            padding: 1.5rem;
+            gap: 1.5rem;
+        }
+
+        &__inputs{
+            gap: .85rem;
+        }
+
+        &__box{
+            min-height: 3rem;
+        }
+
+        &__input{
+            font-size: 1rem;
+            padding-left: .5rem;
+            font-size: .875rem;
+        }
+
+        &__btn{
+            input{
+              font-size: 1.2rem;  
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width: 425px) {
+    //MENU
+    .menu{
+        &__item{
+            width: 100%;
+        }
+    }
+}
+
+

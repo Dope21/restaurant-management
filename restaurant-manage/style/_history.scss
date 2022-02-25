@@ -1,0 +1,31 @@
+.history{
+
+    &__filter{
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__type{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__date{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        background: #FFFFFF;
+        width: 185px;
+        height: 40px;
+        font-family: 'Poppins', sans-serif;
+
+        input{
+            width: 100%;
+            height: 100%;
+            padding: .75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+}

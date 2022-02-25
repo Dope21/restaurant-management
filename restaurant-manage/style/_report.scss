@@ -1,0 +1,152 @@
+.report{
+
+    &__search{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__filter{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &-box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-size: $h2-font-size;
+            border-radius: 10px;
+            padding: .5em .8em;
+            font-weight: $medium-font-weight;
+            background: transparent;
+            color: $color-text-main;
+            box-shadow: $box-shadow;
+            background: #FFFFFF;
+            transition: .3s ease-in-out;
+            cursor: pointer;
+
+            &:hover{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+            
+            &-active{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    &__input{
+        border-radius: 1.25rem;
+        height: 40px;
+        font-family: $font-main;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        input, select{
+            width: 200px;
+            height: 100%;
+            padding: 0 .75rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__sale{
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+        gap: 10px;
+    }
+
+    &__item{
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 1.25rem;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        box-shadow: $box-shadow;
+        color: $color-text-main;
+
+        &-title{
+            font-size: $h2-font-size;
+            font-weight: $bold-font-weight;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-icon{
+            // font-size: $h1-font-size;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $color-soft;
+            color: $color-text-main;
+        }
+
+        &-number{
+            font-size: $big-font-size;
+            font-weight: $bold-font-weight;
+        }
+    }
+
+    &__chart{
+        background: #FFFFFF;
+        border-radius: 1.25rem;
+        padding: .75rem;
+        width: 60%;
+        box-shadow: $box-shadow;
+    }
+
+    &__table{
+        margin-top: 1rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    &__menu{
+        background: #FFFFFF;
+        border-radius: 1.25rem;
+        box-shadow: $box-shadow;
+        width: 40%;
+        padding: 1rem;
+
+        table{
+            width: 100%;
+            text-align: center;
+            margin-top: 1rem;
+
+            th{
+                color: $color-text-main;
+                margin-bottom: 1rem;
+                width: 50%;
+                font-weight: $medium-font-weight;
+            }
+
+            td{
+                padding-top: .5rem;
+            }
+        }
+
+        &-title{
+            color: $color-text-main;
+            font-size: $normal-font-size;
+            font-weight: $medium-font-weight;
+        }
+    }
+
+    &__highlight{
+        color: $color-main;
+    }
+}

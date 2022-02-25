@@ -1,0 +1,203 @@
+.module{
+
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease-in-out;
+
+    &-active{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__content{
+        position: absolute;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        width: 460px;
+        padding: 1.5rem;   
+    }
+
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        font-weight: $bold-font-weight;
+        &-text{
+            font-size: $normal-font-size;
+        }
+
+        &-exit{
+            color: red;
+            cursor: pointer;
+            font-size: $h1-font-size;
+        }
+    }
+
+    &__input{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        &-title{font-size: $normal-font-size;}
+        &-box{
+            font-size: 16px;
+            width: 270px;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid $color-border;
+            background: #FFFFFF;
+            margin-top: 10px;
+            padding: .5rem;
+            &:focus{
+                border: 1px solid $color-main;
+                outline: none;
+            }
+        }
+
+        &-empty{
+            border: 1px solid red;
+        }
+
+        &-name{
+            input{width: 130px;}
+            display: flex;
+            justify-content: space-between; 
+            gap: 10px;
+        }
+    }
+
+    &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.5rem;
+
+        input{
+            font-size: $medium-font-size;
+            padding: .5em 2em;
+            border: none;
+            background: $color-main;
+            color: $color-text-main;
+            font-weight: $medium-font-weight;
+            box-shadow: $box-shadow;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .2s ease-in-out;
+
+            &:hover{
+                color: $color-main;
+                background: $color-text-main;
+            }
+        }
+    }
+
+    &__success{
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+
+        &-text{
+            font-size: $h1-font-size;
+        }
+
+        &-icon{
+            font-size: 36px;
+            color: $color-main;
+        }
+
+        &-active{
+            display: flex;
+        }
+    }
+
+    &__delete{
+        display: none;
+        font-size: $medium-font-size;
+        text-align: center;
+
+        &-text{
+            margin-bottom: 20px;
+        }
+
+        &-submit{
+            font-size: $medium-font-size;
+            background: $color-main;
+            color: #FFFFFF;
+            padding: .5em 1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        &-cancel{
+            @extend .module__delete-submit;
+            background: red;
+        }
+
+        &-active{
+            display: block;
+        }
+    }
+
+    &__ask{
+        display: none;
+        font-size: $medium-font-size;
+        text-align: center;
+
+        &-text{
+            margin-bottom: 20px;
+        }
+
+        &-submit{
+            font-size: $medium-font-size;
+            background: $color-main;
+            color: #FFFFFF;
+            padding: .5em 1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        &-cancel{
+            @extend .module__delete-submit;
+            background: red;
+        }
+
+        &-active{
+            display: block;
+        }
+    }
+
+    &__add-hide{
+        display: none;
+    }
+
+    &__bg{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s ease-in-out;
+    
+        &-active{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
