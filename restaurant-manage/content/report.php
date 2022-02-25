@@ -228,7 +228,7 @@
         </div>
         <div class="report__menu">
             <div class="report__menu-title">
-                <p>TOP 5 MENU</p>
+                <p>TOP MENU</p>
             </div>
             <table id='report__menu'>
                 <tr>

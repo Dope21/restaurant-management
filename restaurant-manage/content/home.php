@@ -39,7 +39,8 @@
     $sql_Ocount = "SELECT COUNT(*) 
                    AS online_count 
                    FROM delivery 
-                   WHERE order_date = '$_date'";
+                   WHERE order_date = '$_date'
+                   AND order_status = 'received'";
     $query_Ocount = mysqli_query($conn, $sql_Ocount);
     $field_Ocount = mysqli_fetch_array($query_Ocount);
 
@@ -60,7 +61,7 @@
     $field_emp = mysqli_fetch_array($query_emp);
 
     //RECENT ORDER
-    $sql_recent = "SELECT * FROM front LIMIT 10";
+    $sql_recent = "SELECT * FROM front ORDER BY order_date DESC LIMIT 10";
     $rs_recent = mysqli_query($conn, $sql_recent);
 
     //NEW ORDER

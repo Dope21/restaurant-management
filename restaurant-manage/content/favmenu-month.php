@@ -1,6 +1,6 @@
 <?php require_once("../database/connection.php") ?>        
 <div class="report__menu-title">
-    <p>TOP 5 MENU</p>
+    <p>TOP MENU</p>
     </div>
     <table id='report__menu' class='month'>
         <tr>
