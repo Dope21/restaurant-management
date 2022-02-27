@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require_once('../database/connection.php') ?>
 <?php 
     $_billID = $_POST['billID'];
@@ -43,7 +44,7 @@
             <div class="bill__details-list">
                 <p>Time</p>
                 <p>
-                    <?php echo $rowDetail['order_time'] ?>
+                    <?php echo substr($rowDetail['order_time'],0,5) ?>
                     <?php echo $rowDetail['order_date'] ?>
                 </p>
             </div>
@@ -83,12 +84,7 @@
             </div>
             <div class="bill__details-total">
                 <p>Total</p>
-                <p class="total">
-                    <?php 
-                        echo $rowDetail['order_price']+
-                            (($rowDetail['order_price']*$rowSet['set_vat'])/100)+
-                            $rowSet['set_serv']
-                    ?>
+                <p class="total"><?php echo $rowDetail['order_price'];?>
                 </p>
             </div>
         </div>
@@ -111,9 +107,16 @@
         <?php 
             }
         ?>
-        <div class="bill__button">
-            <button type="button" id="deleteBtn">Delete</button>
-        </div>
+        <?php 
+            echo $_SESSION['status'];
+        
+            if($_SESSION['status'] == 'admin') { 
+                echo '<div class="bill__button">
+                        <button type="button" id="deleteBtn">Delete</button>
+                      </div>';
+            }
+        ?>
+
     </div>
 </div>
 <?php 
@@ -168,7 +171,7 @@
                 <div class="bill__details-list">
                     <p>Time</p>
                     <p>
-                        <?php echo $rowDetail['order_time'] ?>
+                        <?php echo substr($rowDetail['order_time'],0,5) ?>
                         <?php echo $rowDetail['order_date'] ?>
                     </p>
                 </div>
@@ -226,12 +229,7 @@
             </div>
             <div class="bill__details-total">
                 <p>Total</p>
-                <p>
-                    <?php 
-                        echo $rowDetail['order_price']+
-                            (($rowDetail['order_price']*$rowSet['set_vat'])/100)+
-                            $rowSet['set_deliver']
-                    ?>
+                <p><?php echo $rowDetail['order_price'] + $rowSet['set_deliver']; ?>
                 </p>
             </div>
         </div>

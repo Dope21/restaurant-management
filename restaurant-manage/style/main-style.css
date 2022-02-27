@@ -1981,6 +1981,8 @@ table.dataTable.no-footer {
 
 .order .bill__details-add button {
   margin-bottom: 1rem;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
 
 .order .bill__details-title {
@@ -2040,17 +2042,19 @@ table.dataTable.no-footer {
   border: none;
   background: black;
   border-radius: 5px;
-  color: #00FFA3;
+  color: #FFFFFF;
   font-weight: 500;
   font-size: 1.5rem;
   cursor: pointer;
   padding: .5rem 0;
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
+  -webkit-box-shadow: 5px 4px 26px -10px rgba(0, 0, 0, 0.25);
+          box-shadow: 5px 4px 26px -10px rgba(0, 0, 0, 0.25);
 }
 
 .order .bill__button button:hover {
-  color: black;
+  color: #FFFFFF;
   background: #00FFA3;
 }
 
