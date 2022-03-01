@@ -108,8 +108,6 @@
             }
         ?>
         <?php 
-            echo $_SESSION['status'];
-        
             if($_SESSION['status'] == 'admin') { 
                 echo '<div class="bill__button">
                         <button type="button" id="deleteBtn">Delete</button>
