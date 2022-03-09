@@ -1,15 +1,18 @@
 <?php require_once("../database/connection.php") ?>
 <?php session_start() ?>
 <?php 
+
+    //GET TODAY
+    date_default_timezone_set("Asia/Bangkok");       
+    $_date = date('Y-m-d');
+
+    //SELECT USER
     $_userID = $_SESSION['userID'];
     $sqlUser = "SELECT * FROM employee WHERE emp_id = '$_userID'";
     $resultUser = mysqli_query($conn, $sqlUser);
     $rowUser = mysqli_fetch_array($resultUser);
-    //DAILY SALE
-    date_default_timezone_set("Asia/Bangkok");
-            
-    $_date = date('Y-m-d');
 
+    //DAILY SALE
     $sql_front = "SELECT SUM(order_price) 
                   AS front_sum
                   FROM front 

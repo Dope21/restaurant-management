@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 position-fixed w-100">
     <div class="container-fluid nav-wrapper">
-        <a class="navbar-brand" href="./index.php?content=home">CasaVaga</a>
+        <a class="navbar-brand" href="./index.php?content=home">Books</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,11 +20,11 @@
                 <li class="nav-item">
                     <a class="nav-link 
                         <?php 
-                            if($_GET['content'] == 'menu') {
+                            if($_GET['content'] == 'staff') {
                                 echo 'nav-active';
                             } 
                         ?>" 
-                        href="./index.php?content=menu">MENU
+                        href="./index.php?content=staff">STAFF
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center position-relative">
