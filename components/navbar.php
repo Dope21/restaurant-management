@@ -10,7 +10,7 @@
                 <li class="nav-item">
                     <a class="nav-link 
                         <?php 
-                            if($_GET['content'] == 'home' || $_GET['content'] == '') {
+                            if($content == 'home' || $content == '') {
                                 echo 'nav-active';
                             } 
                         ?>" 
@@ -20,17 +20,17 @@
                 <li class="nav-item">
                     <a class="nav-link 
                         <?php 
-                            if($_GET['content'] == 'staff') {
+                            if($content == 'menu') {
                                 echo 'nav-active';
                             } 
                         ?>" 
-                        href="./index.php?content=staff">STAFF
+                        href="./index.php?content=menu">MENU
                     </a>
                 </li>
                 <li class="nav-item d-flex align-items-center position-relative">
                     <a class="nav-link
                         <?php 
-                            if($_GET['content'] == 'cart') {
+                            if($content == 'cart') {
                                 echo 'nav-active';
                             } 
                         ?>" 
@@ -38,26 +38,29 @@
                     </a>
                     <?php 
                         $cart_count = 0;
-                        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                        if (isset($_SESSION['cart'])) {
+                            
+                            for ($i = 0; $i < count($_SESSION['cart']); $i++) {
 
-                            if ($_SESSION['cart'][$i]['menuID'] != '' && $_SESSION['cart'][$i]['menuQT'] != 0) {
-                                $cart_count += $_SESSION['cart'][$i]['menuQT'];
+                                if ($_SESSION['cart'][$i]['menuID'] != '' && $_SESSION['cart'][$i]['menuQT'] != 0) {
+                                    $cart_count += $_SESSION['cart'][$i]['menuQT'];
+                                }
                             }
-                        }
-                        if ($cart_count > 0) {
-                            echo '<span class="nav__cart ms-2 rounded-circle d-flex align-items-center justify-content-center">'.$cart_count.'</span>';
+                            if ($cart_count > 0) {
+                                echo '<span class="nav__cart ms-2 rounded-circle d-flex align-items-center justify-content-center">'.$cart_count.'</span>';
+                            }
                         }
                     ?>
                 </li>
 
                 <?php 
-                    if ($_SESSION['userID'] != '') {
+                    if ($_userID != '') {
                         
                 ?>
                 <li class="nav-item">
                     <a class="nav-link 
                         <?php 
-                            if($_GET['content'] == 'order') {
+                            if($content == 'order') {
                                 echo 'nav-active';
                             } 
                         ?>" 

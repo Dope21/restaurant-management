@@ -2,11 +2,18 @@
 <?php session_start() ?>
 <?php 
 
-    $_userID = $_SESSION['userID'];
-    $sql = "SELECT * FROM customer WHERE '$_userID' = cus_id";
-    $query = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($query);
-
+    $_userID = '';
+    if (isset($_SESSION['userID'])) {
+        $_userID = $_SESSION['userID'];
+        $sql = "SELECT * FROM customer WHERE '$_userID' = cus_id";
+        $query = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_array($query);
+    }
+    
+    $content = '';
+    if (isset($_GET['content'])){
+        $content = $_GET['content'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,31 +39,11 @@
     </header>
     <main class="main">
         <?php
-
-        if (isset($GET_['content'])) {
-            if($_GET['content'] == 'home') {
-                include('./components/home.php'); 
-            } else if ($_GET['content'] == 'staff') {
-                include('./components/staff.php');
-            } else if ($_GET['content'] == 'detail') {
-                include('./components/detail.php');
-            } else if ($_GET['content'] == 'cart') {
-                include('./components/cart.php');
-            } else if ($_GET['content'] == 'order') {
-                include('./components/order.php');
-            } else if ($_GET['content'] == 'payment') {
-                include('./components/payment.php');
-            } else if ($_GET['content'] == 'order-details') {
-                include('./components/order-details.php');
-            } else if ($_GET['content'] == 'profile') {
-                include('./components/profile.php');
+            if ($content == '') {
+                include('./components/home.php');
             } else {
-                include('./components/home.php'); 
-            }
-        } else {
-            include('./components/home.php'); 
-        }
-            
+                include('./components/'.$content.'.php');
+            } 
         ?>
     </main>
     <footer class="footer">
