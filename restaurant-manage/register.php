@@ -8,7 +8,6 @@
     if (isset($_GET['mpass'])){
         $mpass = $_GET['mpass'];
     }
-    //test
 
 ?>
 <!DOCTYPE html>
