@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 position-fixed w-100">
     <div class="container-fluid nav-wrapper">
-        <a class="navbar-brand" href="./index.php?content=home">Books</a>
+        <a class="navbar-brand" href="./index.php?content=home">CasaVega</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +39,7 @@
                     <?php 
                         $cart_count = 0;
                         if (isset($_SESSION['cart'])) {
-                            
+
                             for ($i = 0; $i < count($_SESSION['cart']); $i++) {
 
                                 if ($_SESSION['cart'][$i]['menuID'] != '' && $_SESSION['cart'][$i]['menuQT'] != 0) {
@@ -57,37 +57,37 @@
                     if ($_userID != '') {
                         
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link 
-                        <?php 
-                            if($content == 'order') {
-                                echo 'nav-active';
-                            } 
-                        ?>" 
-                        href="./index.php?content=order">ORDER
-                    </a>
-                </li>
-                <li class="nav-item dropdown nav-profile d-flex">
-                    <img src="./restaurant-manage/cus_img/<?php if ($row['cus_image'] == ''){
-                        echo 'user-defult.png';
-                    } else {
-                        echo $row['cus_image'];
-                    } ?>"
-                    alt="profile-image" class="rounded-pill">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $row['cus_username'] ?>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="./index.php?content=profile"><i class="fas fa-user-cog me-2"></i>Setting</a></li>
-                        <li><a class="dropdown-item" href="./logout.php"><i class="fas fa-door-open me-2"></i>Logout</a></li>
-                    </ul>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link 
+                            <?php 
+                                if($content == 'order') {
+                                    echo 'nav-active';
+                                } 
+                            ?>" 
+                            href="./index.php?content=order">ORDER
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown nav-profile d-flex">
+                        <img src="./restaurant-manage/cus_img/<?php if ($row['cus_image'] == ''){
+                            echo 'user-defult.png';
+                        } else {
+                            echo $row['cus_image'];
+                        } ?>"
+                        alt="profile-image" class="rounded-pill">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php echo $row['cus_username'] ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="./index.php?content=profile"><i class="fas fa-user-cog me-2"></i>Setting</a></li>
+                            <li><a class="dropdown-item" href="./logout.php"><i class="fas fa-door-open me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
                 <?php
                     } else {
                 ?>
-                <li class="nav-item">
-                    <a class="nav-link login-button rounded-pill px-4" href="./login.php" tabindex="-1" aria-disabled="true">LOGIN</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link login-button rounded-pill px-4" href="./login.php" tabindex="-1" aria-disabled="true">LOGIN</a>
+                    </li>
                 <?php 
                     }
                 ?>

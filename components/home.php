@@ -26,7 +26,7 @@
     <div class="col-md-12 d-flex align-items-center justify-content-center mt-5">
         <button type="button" class="btn call-btn"
         <?php 
-            if($_SESSION['userID'] == '') {
+            if($_userID == '') {
                 echo 'onclick="window.location='."'./register.php'".'"';
             } else {
                 echo 'onclick="window.location='."'./index.php?content=menu'".'"';
@@ -156,7 +156,7 @@
             </div>
             <button type="button" class="btn call-btn mt-4"
                 <?php 
-                    if($_SESSION['userID'] == '') {
+                    if($_userID == '') {
                         echo 'onclick="window.location='."'./register.php'".'"';
                     } else {
                         echo 'onclick="window.location='."'./index.php?content=menu'".'"';

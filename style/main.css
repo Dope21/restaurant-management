@@ -569,6 +569,12 @@ main {
   font-size: 1.125rem;
 }
 
+.footer__copy {
+  font-size: 0.875rem;
+  text-align: center;
+  font-weight: 300;
+}
+
 .menu {
   padding-top: 70px;
 }

@@ -58,4 +58,10 @@
         font-size: $text-medium;
     }
 
+    &__copy{
+        font-size: $text-small;
+        text-align: center;
+        font-weight: 300;
+    }
+
 }

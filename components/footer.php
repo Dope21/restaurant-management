@@ -28,4 +28,7 @@
             </div>
         </div>
     </div>
+    <div class="footer__copy mt-md-5">
+        <p>© 2022 Thanasak Limsila. All Rights Reserved.</p>
+    </div>
 </div>
