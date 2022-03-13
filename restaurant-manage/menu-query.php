@@ -18,6 +18,7 @@ if ($_POST['order'] == 'add'){
 
     $sql = "INSERT INTO menu (menu_name, menu_type, menu_description, menu_price, cate_id) 
             VALUES ('$_name', '$_type', '$_desc', '$_price', '$_cate')";
+    mysqli_query($conn, $sql);
 }
 
 if ($_POST['order'] == 'delete') {
@@ -25,9 +26,11 @@ if ($_POST['order'] == 'delete') {
     $_menuID = $_POST['deleteID'];
 
     $sql = "DELETE FROM menu WHERE menu_id = '$_menuID'";
+    mysqli_query($conn, $sql);
 }
 
-if ($_POST['order'] == 'Update') {
+if ($_POST['order'] == 'update') {
+
     //VARIABLE FOR UPDATE
     $_menuID = $_GET['menuID'];
 
@@ -56,6 +59,15 @@ if ($_POST['order'] == 'Update') {
                 cate_id = '$_cate'
                 WHERE menu_id = '$_menuID'";
     } else {
+
+        //GET CURRENT IMAGE AN DELETE IT
+        $sql_img = "SELECT * FROM menu WHERE menu_id = '$_menuID'";
+        $rs_img = mysqli_query($conn, $sql_img);
+        $row_img = mysqli_fetch_array($rs_img);
+        $menu_img = $row_img['menu_image'];
+        unlink($path.$menu_img);
+
+        
         $sql = "UPDATE menu SET
                 menu_name = '$_name',
                 menu_type = '$_type',
@@ -64,7 +76,7 @@ if ($_POST['order'] == 'Update') {
                 cate_id = '$_cate',
                 menu_image = '$_image'
                 WHERE menu_id = '$_menuID'";
-                copy($_FILES["image"]["tmp_name"],"$path$_image");
+                copy($_FILES["image"]["tmp_name"],$path.$_image);
     }
 
         $result = mysqli_query($conn, $sql);
@@ -72,12 +84,9 @@ if ($_POST['order'] == 'Update') {
             echo 'not working'.mysqli_error($conn) ;
         } else {
 
-            header('location: ./index.php#menu');
-            
-        }
-
+            header('location: ./index.php#menu');   
+    }
 }
 
-mysqli_query($conn, $sql);
 
 ?>

@@ -89,7 +89,7 @@ $rowMenu = mysqli_fetch_array($resultMenu);
             </div>
 
             <div class="menu__update-button">
-                <input type="submit" value="Update" id="updateMenu" name="order">
+                <input type="submit" value="update" id="updateMenu" name="order">
                 <button type="button" id="deleteMenu" data-id="<?php echo $_menuID ?>">Delete</button>
             </div>
         </div>
