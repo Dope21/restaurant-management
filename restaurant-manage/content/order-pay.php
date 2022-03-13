@@ -89,7 +89,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 ?>
                 <div class="bill__details-list bill__menu" data-id="<?php echo $rowMenu['menu_id'] ?>" >
                     <p>
-                        <?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'.$rowMenu['menu_qt']?>
+                        <?php echo $rowMenu['menu_name'].' '.$rowMenu['menu_type'].' '.'x'.$rowMenu['menu_qt']?>
                     </p>
                     <p>
                         <?php echo $rowMenu['menu_total'] ?>

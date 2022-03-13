@@ -2,19 +2,13 @@
 <?php 
 
 if ($_POST['order'] == 'add'){
+    
     //VARIABLE FOR ADD MENU
     $_name = $_POST['Name'];
     $_type = $_POST['Type'];
     $_desc = $_POST['Desc'];
     $_price = $_POST['Price'];
     $_cate = $_POST['Cate'];
-
-    // echo $_name.'<br>';
-    // echo $_type.'<br>';
-    // echo $_desc.'<br>';
-    // echo $_price.'<br>';
-    // echo $_cate.'<br>';
-
 
     $sql = "INSERT INTO menu (menu_name, menu_type, menu_description, menu_price, cate_id) 
             VALUES ('$_name', '$_type', '$_desc', '$_price', '$_cate')";
@@ -42,14 +36,6 @@ if ($_POST['order'] == 'update') {
     $_image = $_FILES['image']['name'];
     $path = 'menu_img/';
 
-    // echo $_name.'<br>';
-    // echo $_type.'<br>';
-    // echo $_desc.'<br>';
-    // echo $_price.'<br>';
-    // echo $_cate.'<br>';
-    // echo $_image.'<br>';
-    // echo $path.'<br>';
-
     if ($_image == "" ) {
         $sql = "UPDATE menu SET
                 menu_name = '$_name',
@@ -67,7 +53,7 @@ if ($_POST['order'] == 'update') {
         $menu_img = $row_img['menu_image'];
         unlink($path.$menu_img);
 
-        
+
         $sql = "UPDATE menu SET
                 menu_name = '$_name',
                 menu_type = '$_type',

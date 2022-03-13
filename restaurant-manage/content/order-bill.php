@@ -1,8 +1,10 @@
 <?php require_once('../database/connection.php') ?>
 <?php 
-    $billID = $_POST['billID'];
 
-    if ($_POST['from'] == 'delivery') {
+    $billID = $_POST['billID'];
+    // if ($_POST['from'] == 'delivery') {
+    if (isset($_POST['from'])) {
+        $from = $_POST['from'];
         $sqlDetail = "SELECT * 
                       FROM delivery
                       INNER JOIN customer
@@ -12,6 +14,7 @@
         $rowDetail = mysqli_fetch_array($resultDetail);
     } else {
 
+        $from = '';
         $sqlDetail = "SELECT * FROM front WHERE bill_id = '$billID'";
         $resultDetail = mysqli_query($conn, $sqlDetail);
         $rowDetail = mysqli_fetch_array($resultDetail);
@@ -43,7 +46,7 @@
                 foreach($resultMenu as $rowMenu) {
             ?>
             <div class="bill__details-list">
-                <p><?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
+                <p><?php echo $rowMenu['menu_name'].' '.$rowMenu['menu_type'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
                 <p><?php echo $rowMenu['menu_total'] ?></p>
             </div>
             <?php 
@@ -59,7 +62,8 @@
             </div>
             <div class="bill__details-list">
                 <?php 
-                    if($_POST['from'] == 'delivery') {
+                    // if($_POST['from'] == 'delivery') {
+                    if(isset($_POST['from'])) {
                 ?>
                     <p>Deliver Charge</p>
                     <p><?php echo $rowSet['set_deliver'] ?></p>
@@ -80,7 +84,8 @@
                 <p>Total</p>
                 <p>
                     <?php 
-                            if($_POST['from'] == 'delivery') {
+                            // if($_POST['from'] == 'delivery') {
+                            if(isset($_POST['from'])) {
                                 $serv = $rowSet['set_deliver'];
                             } else {
                                 $serv = $rowSet['set_serv'];
@@ -121,7 +126,7 @@
         detailButton.click(()=>{
             content.load('./content/order-edit.php',{
                 orderID: '<?php echo $billID ?>',
-                from: '<?php echo $_POST['from']?>'
+                from: '<?php echo $from?>'
             })
         })
     })

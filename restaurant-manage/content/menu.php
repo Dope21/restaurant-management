@@ -75,7 +75,7 @@
             if(isset($_POST['orderID'])){
         ?>
             <div class="menu__cart-button">
-                <button type="button" id="addCart" class="button" data-from="<?php echo $_POST['from'] ?>"><i class="fas fa-plus"></i>Add Cart</button>
+                <button type="button" id="addCart" class="button"><i class="fas fa-plus"></i>Add Cart</button>
                 <span class="menu__cart-id"><?php echo $_orderID ?></span>
             </div>
         <?php 
@@ -175,7 +175,6 @@
                 
             //ADD MENU
             $('#addMenu').click(()=>{
-                // console.log('yes')
 
                 const name = $('input[name="name"]'),
                       type = $('input[name="type"]'),
@@ -328,19 +327,19 @@
             // MENU ADD CART
             menuCart.click(()=>{
 
-                if (menuCart.data('from') == 'delivery') {
-                    $.ajax({
-                        url: './cart.php',
-                        type: 'post',
-                        data: { 
-                                orderID: '<?php echo $_orderID ?>',
-                                from: 'delivery'
-                              },
-                        success: (response)=>{
-                            content.load('./content/online.php');
-                        }
-                    })
-                } else {
+                // if (menuCart.data('from') == 'delivery') {
+                //     $.ajax({
+                //         url: './cart.php',
+                //         type: 'post',
+                //         data: { 
+                //                 orderID: '<?php echo $_orderID ?>',
+                //                 from: 'delivery'
+                //               },
+                //         success: (response)=>{
+                //             content.load('./content/online.php');
+                //         }
+                //     })
+                // } else {
                     $.ajax({
                         url: './cart.php',
                         type: 'post',
@@ -349,7 +348,7 @@
                             content.load('./content/order.php');
                         }
                     })
-                } 
+                // } 
             })
 
             

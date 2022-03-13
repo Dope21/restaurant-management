@@ -136,7 +136,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                     foreach($resultMenu as $rowMenu) {
                 ?>
                 <div class="bill__details-list bill__menu" data-id="<?php echo $rowMenu['menu_id'] ?>" >
-                    <p><?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'?>
+                    <p><?php echo $rowMenu['menu_name'].' '.$rowMenu['menu_type'].' '.'x'?>
                         <input class="bill__input-qt" type="number" min="1" name="menu_qt" value="<?php echo $rowMenu['menu_qt'] ?>">
                     </p>
                     <p>
