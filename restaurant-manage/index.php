@@ -2,14 +2,15 @@
 <?php session_start() ?>
 <?php
 
-if ($_SESSION['userID'] == '') {
+$_userID = '';
+if (isset($_SESSION['userID'])) {    
+    $_userID = $_SESSION['userID'];
+    $sqlUser = "SELECT * FROM employee WHERE emp_id = '$_userID'";
+    $resultUser = mysqli_query($conn, $sqlUser);
+    $rowUser = mysqli_fetch_array($resultUser);
+} else {
     header('location: ./login.php');
 }
-
-$_userID = $_SESSION['userID'];
-$sqlUser = "SELECT * FROM employee WHERE emp_id = '$_userID'";
-$resultUser = mysqli_query($conn, $sqlUser);
-$rowUser = mysqli_fetch_array($resultUser);
 date_default_timezone_set("Asia/Bangkok");
 
     $month = array(

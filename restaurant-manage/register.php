@@ -1,3 +1,15 @@
+<?php 
+
+    $muser = '';
+    $mpass = '';
+    if (isset($_GET['muser'])){
+        $muser = $_GET['muser'];
+    }
+    if (isset($_GET['mpass'])){
+        $mpass = $_GET['mpass'];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +45,8 @@
                     <input type="text" name="username" minlength="8" maxlength="20" placeholder="Username" class="regis__input">
                 </div>
                 <?php 
-                    if ($_GET['muser'] != '') {
-                        echo '<p class="regis__error">'.$_GET['muser'].'</p>';
+                    if ($muser != '') {
+                        echo '<p class="regis__error">'.$muser.'</p>';
                     }
                 ?>
                 <div class="regis__box">
@@ -46,8 +58,8 @@
                     <input type="password" name="password-check" minlength="8" maxlength="20" placeholder="Confirm your password" class="regis__input">
                 </div>
                 <?php 
-                    if ($_GET['mpass'] != '') {
-                        echo '<p class="regis__error">'.$_GET['mpass'].'</p>';
+                    if ($mpass != '') {
+                        echo '<p class="regis__error">'.$mpass.'</p>';
                     }     
                 ?>
                 <div class="regis__box regis__inline">

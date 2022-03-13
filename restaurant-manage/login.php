@@ -1,3 +1,11 @@
+<?php 
+
+    $message = '';
+    if (isset($_GET['message'])){
+        $message = $_GET['message'];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,8 +38,8 @@
             <div>
             <?php 
 
-                if($_GET['message'] != ''){
-                    echo '<p class="login__error">'.$_GET['message'].'</p>';
+                if($message != ''){
+                    echo '<p class="login__error">'.$message.'</p>';
                 }
             
             ?>

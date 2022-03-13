@@ -4,6 +4,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 
     &__form{
         z-index: 1;

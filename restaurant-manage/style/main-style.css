@@ -446,6 +446,7 @@ p.access.denied {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  min-height: 100vh;
 }
 
 .regis__form {
