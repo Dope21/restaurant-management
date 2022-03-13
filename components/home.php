@@ -73,10 +73,10 @@
                             } else {
                                 echo $fav['menu_image'];
                             } ?>" class="card-img-top" alt="menu-image">
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-start"><?php echo $fav['menu_name']?></h5>
                                 <p class="card-subtitle text-start"><?php echo $fav['menu_type']?></p>
-                                <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-end justify-content-between mt-auto">
                                     <p class="card-text"><?php echo $fav['menu_price']?>฿</p>
                                     <a href="./index.php?content=detail&menuID=<?php echo $fav['menu_id'] ?>" class="btn card-btn">Order now</a>
                                 </div>
