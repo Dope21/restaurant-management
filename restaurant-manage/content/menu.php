@@ -5,6 +5,11 @@
     $sqlCate = "SELECT * FROM category";
     $resultCate = mysqli_query($conn, $sqlCate);
 
+    $_orderID = '';
+    if (isset($_POST['orderID'])) {
+        $_orderID = $_POST['orderID'];
+    }
+
 ?>
 <div class="black-bg"></div>
 <div class="menu">
@@ -20,19 +25,19 @@
                 
                 <div class="module__input">
                     <label for="name" class="module__input-title">Name*</label>
-                    <input type="text" class="module__input-box" name='name' placeholder="Require">
+                    <input type="text" class="module__input-box" name='name' placeholder="">
                 </div>
                 <div class="module__input">
                     <label for="type" class="module__input-title">Type</label>
-                    <input type="text" class="module__input-box" name='type' placeholder="pork/chicken/beef">
+                    <input type="text" class="module__input-box" name='type' placeholder="pork, chicken, beef, etc.">
                 </div>
                 <div class="module__input">
                     <label for="desc" class="module__input-title">Description</label>
-                    <input type="text" class="module__input-box" name='desc' placeholder="Describe this menu">
+                    <input type="text" class="module__input-box" name='desc' placeholder="">
                 </div>
                 <div class="module__input">
                     <label for="price" class="module__input-title">Price*</label>
-                    <input type="text" class="module__input-box" name='price' placeholder="Require">
+                    <input type="text" class="module__input-box" name='price' placeholder="">
                 </div>
                 <div class="module__input">
                     <label for="cate" class="module__input-title">Category*</label>
@@ -71,7 +76,7 @@
         ?>
             <div class="menu__cart-button">
                 <button type="button" id="addCart" class="button" data-from="<?php echo $_POST['from'] ?>"><i class="fas fa-plus"></i>Add Cart</button>
-                <span class="menu__cart-id"><?php echo $_POST['orderID'] ?></span>
+                <span class="menu__cart-id"><?php echo $_orderID ?></span>
             </div>
         <?php 
             } else {
@@ -168,8 +173,9 @@
 
             var filter = [];
                 
-            //ADD CUSTOMER
+            //ADD MENU
             $('#addMenu').click(()=>{
+                // console.log('yes')
 
                 const name = $('input[name="name"]'),
                       type = $('input[name="type"]'),
@@ -232,7 +238,7 @@
 
                             menuContent.load('./content/menu-filter.php', {
                                 Filter: filter,
-                                orderID: '<?php echo $_POST['orderID'] ?>'
+                                orderID: "<?php echo $_orderID ?>"
                             })
                         }
                     } else {
@@ -241,7 +247,7 @@
                         filter[unCheck] = '';
                         menuContent.load('./content/menu-filter.php', {
                             Filter: filter.filter(n => n),
-                            orderID: '<?php echo $_POST['orderID'] ?>'
+                            orderID: "<?php echo $_orderID ?>"
                         })
                     }
                 })
@@ -258,7 +264,7 @@
                 
                 menuContent.load('./content/menu-filter.php', {
                     menuName: menuSearchBox.val(),
-                    orderID: '<?php echo $_POST['orderID'] ?>'
+                    orderID: '<?php echo $_orderID ?>'
                 })
             })
 
@@ -327,7 +333,7 @@
                         url: './cart.php',
                         type: 'post',
                         data: { 
-                                orderID: '<?php echo $_POST['orderID'] ?>',
+                                orderID: '<?php echo $_orderID ?>',
                                 from: 'delivery'
                               },
                         success: (response)=>{
@@ -338,7 +344,7 @@
                     $.ajax({
                         url: './cart.php',
                         type: 'post',
-                        data: { orderID: '<?php echo $_POST['orderID'] ?>' },
+                        data: { orderID: '<?php echo $_orderID ?>' },
                         success: (response)=>{
                             content.load('./content/order.php');
                         }

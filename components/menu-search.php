@@ -1,7 +1,9 @@
 <?php require_once('../database/connection.php') ?>
 <?php 
 
-        $_name = $_POST['name'];
+    $_name = '';
+    if (isset($_POST['name'])) {
+        $_name = $_POST['name'];        
         
         $sql_menu = "SELECT * FROM menu WHERE menu_name LIKE '%$_name%'";
         $rs_menu = mysqli_query($conn, $sql_menu);
@@ -25,4 +27,5 @@
         </div>
     <?php 
         }
+    }
     ?>

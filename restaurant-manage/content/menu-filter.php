@@ -2,15 +2,22 @@
 <?php 
 
 $cateName = [];
-$cateName = $_POST['Filter'];
-$menuName = $_POST['menuName'];
+$menuName = '';
+
+    if (isset($_POST['Filter'])){
+        $cateName = $_POST['Filter'];
+    }
+
+    if (isset($_POST['menuName'])) {
+        $menuName = $_POST['menuName'];
+    }
 
 ?>
 
 <div class="menu__items">
     <?php 
     
-        if ($_POST['menuName'] != '') {
+        if ($menuName != '') {
             $sqlMenu = "SELECT * FROM menu WHERE menu_name = '$menuName'";
             $resultMenu = mysqli_query($conn, $sqlMenu);
             foreach ($resultMenu as $rowMenu) {
@@ -44,7 +51,7 @@ $menuName = $_POST['menuName'];
             } 
         } else {
             
-            if (empty($_POST['Filter'])) {
+            if (empty($cateName)) {
 
                     $sqlMenu = "SELECT * FROM menu";
                     $resultMenu = mysqli_query($conn, $sqlMenu);
