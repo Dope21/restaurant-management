@@ -1,3 +1,9 @@
+<?php 
+    $error = '';
+    if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/606f13a45a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="shortcut icon" type="image/png" href="./asset/fav-icon.png">
     <title>Casa Vega</title>
 </head>
 <body>
@@ -22,9 +29,9 @@
             <p class="login__title mb-5 mt-3">login to continue</p>
             <?php 
 
-                if($_GET['error'] != '') {
+                if($error != '') {
             
-                    echo '<p class="text-danger mb-2">'.$_GET['error'].'</p>';
+                    echo '<p class="text-danger mb-2">'.$error.'</p>';
                 }
             
             ?>

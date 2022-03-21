@@ -1,3 +1,16 @@
+<?php 
+
+    $ms_user = '';
+    $ms_pass = '';
+
+    if (isset($_GET['ms_user'])) {
+        $ms_user = $_GET['ms_user'];
+    }
+    if (isset($_GET['ms_pass'])) {
+        $ms_pass = $_GET['ms_pass'];
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/606f13a45a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style/main.css">
+    <link rel="shortcut icon" type="image/png" href="./asset/fav-icon.png">
     <title>Casa Vega</title>
 </head>
 <body>
@@ -26,8 +40,8 @@
                     <input type="text" class="register__input" name="user" minlength="8" maxlength="20" placeholder="8-20 characters" require>
                 </div>
                 <?php 
-                    if ($_GET['ms_user'] != '') {
-                        echo $_GET['ms_user'];
+                    if ($ms_user != '') {
+                        echo $ms_user;
                     }
                 ?>
                 <div class="register__box">
@@ -39,8 +53,8 @@
                     <input type="password" class="register__input" name="check-pass" minlength="8" maxlength="20" require>
                 </div>
                 <?php 
-                    if ($_GET['ms_pass'] != '') {
-                        echo $_GET['ms_pass'];
+                    if ($ms_pass != '') {
+                        echo $ms_pass;
                     }
                 ?>
 

@@ -3,11 +3,14 @@
         <div class="cart__number d-flex align-items-center">
             <span class="me-3 rounded-circle d-flex align-items-center justify-content-center">
                 <?php 
+                        
                     $cart_count = 0;
-                    for ($i = 0; $i < count($_SESSION['cart']); $i++) {
+                    if (isset($_SESSION['cart'])) {
+                        for ($i = 0; $i < count($_SESSION['cart']); $i++) {
 
-                        if ($_SESSION['cart'][$i]['menuID'] != '' && $_SESSION['cart'][$i]['menuQT'] != 0) {
-                            $cart_count += $_SESSION['cart'][$i]['menuQT'];
+                            if ($_SESSION['cart'][$i]['menuID'] != '' && $_SESSION['cart'][$i]['menuQT'] != 0) {
+                                $cart_count += $_SESSION['cart'][$i]['menuQT'];
+                            }
                         }
                     }
                     echo $cart_count;
@@ -16,7 +19,7 @@
             items
         </div>
         <?php 
-            if ($_SESSION['userID'] == '') {
+            if ($_userID == '') {
         ?>
             <button class="btn call-btn" onclick="window.location='./login.php'">Confirm Order</button>
         <?php 
@@ -30,6 +33,8 @@
     <div class="cart__items mt-4">
 
     <?php 
+        $counter = 0;
+    if (isset($_SESSION['cart'])) {
 
         $counter = count($_SESSION['cart']);
 
@@ -65,6 +70,7 @@
     <?php 
             }
         }
+    }
     ?>
     
         
