@@ -528,6 +528,7 @@ main {
 
 .footer {
   background: #151515;
+  margin-top: auto;
 }
 
 .footer__logo {

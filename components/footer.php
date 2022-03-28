@@ -1,4 +1,4 @@
-<div class="container row py-5 text-white align-items-center gap-5 gap-md-0 mt-auto">
+<div class="container row py-5 text-white align-items-center gap-5 gap-md-0">
     <div class="col-md-4 footer__about">
         <h2 class="footer__logo">CasaVega</h2>
         <p class="mt-3 pe-0 pe-lg-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, maxime! Numqu </p>
