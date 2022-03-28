@@ -3,10 +3,10 @@
 
     $_menuQT = $_POST['menu_qt'];
     $_menuID = $_POST['menu_id'];
-    $menuLast = count($_SESSION['cart']);
 
     if(is_array($_SESSION['cart'])){
-
+        
+        $menuLast = count($_SESSION['cart']);
         $menuMark = 0;
         for ($i = 0; $i < $menuLast; $i++){
                 
