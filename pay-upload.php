@@ -3,7 +3,7 @@
 
     $_orderID = $_GET['orderID'];
     $_image = $_FILES['image']['name'];
-    $path = '../restaurant_manage/payment_img/';
+    $path = './restaurant-manage/payment_img/';
 
     if ($_image == '') {
 

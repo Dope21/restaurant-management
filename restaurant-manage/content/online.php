@@ -1,4 +1,14 @@
 <?php require_once('../database/connection.php') ?>
+<?php 
+    $_from = '';
+    $_orderID = '';
+    if (isset($_POST['from'])) {
+        $_from = $_POST['from'];
+    } 
+    if (isset($_POST['orderID'])){
+        $_orderID = $_POST['orderID'];
+    }
+?>
 <div class="black-bg"></div>
 <div class="order">
     <div class="module">
@@ -105,9 +115,9 @@
             })
         })
 
-        if ('<?php echo $_POST['from'] ?>' == 'home') {
+        if ('<?php echo $_from ?>' == 'home') {
             detail.load('./content/online-bill.php',{
-                billID: '<?php echo $_POST['orderID']?>'
+                billID: '<?php echo $_orderID?>'
             })
         }
 

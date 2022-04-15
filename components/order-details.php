@@ -29,7 +29,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        You have received your order?
+        Have you received your order?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -123,7 +123,7 @@
                     foreach($resultMenu as $rowMenu) {
                 ?>
                 <div class="bill__details-list">
-                    <p><?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
+                    <p><?php echo $rowMenu['menu_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
                     <p><?php echo $rowMenu['menu_total'] ?></p>
                 </div>
                 <?php 
@@ -147,19 +147,8 @@
                     <p><?php echo $_orderSum ?></p>
                 </div>
                 <div class="bill__details-list">
-                    <?php 
-                        if($_POST['from'] == 'delivery') {
-                    ?>
-                        <p>Deliver Charge</p>
-                        <p><?php echo $rowSet['set_deliver'] ?></p>
-                    <?php 
-                        } else {
-                    ?>
-                        <p>Deliver Charge</p>
-                        <p><?php echo $rowSet['set_deliver'] ?></p>
-                    <?php 
-                        }
-                    ?>
+                    <p>Deliver Charge</p>
+                    <p><?php echo $rowSet['set_deliver'] ?></p>
                 </div>
                 <div class="bill__details-list">
                     <p>VAT</p>
