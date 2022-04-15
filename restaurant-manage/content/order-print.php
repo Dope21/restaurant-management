@@ -134,8 +134,10 @@ $rowSet = mysqli_fetch_array($resultSet);
 
                     orderID: '<?php echo $billID ?>',
                     total: total,
-                    order: 'pay'
-                
+                    order: 'pay',
+                    receive: <?php echo $_POST['receive'] ?>,
+                    change: <?php echo $_POST['change'] ?>
+
                 },
                 success: function(response){
                     window.print();

@@ -127,10 +127,14 @@ if($_POST['order'] == 'pay') {
     
     $_total = $_POST['total'];
     $_orderID = $_POST['orderID'];
+    $_receive = $_POST['receive'];
+    $_change = $_POST['change'];
 
     $sql = "UPDATE front 
             SET order_price = '$_total',
-                order_status = 'paid'
+                order_status = 'paid',
+                order_receive = '$_receive',
+                order_change = '$_change'
             WHERE bill_id = '$_orderID'";
     mysqli_query($conn, $sql);
 

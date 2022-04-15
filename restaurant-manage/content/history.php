@@ -1,4 +1,15 @@
 <?php require_once('../database/connection.php') ?>
+<?php 
+    
+    //ORDER ID FROM HOME PAGE
+    $_from = '';
+    $_orderID = '';
+    if (isset($_POST['from'])) {
+        $_from = $_POST['from'];
+        $_orderID = $_POST['orderID'];
+    }
+
+?>
 <div class="black-bg"></div>
 <div class="order history">
     <div class="module">
@@ -103,9 +114,10 @@
             })
         })
 
-        if ('<?php echo $_POST['from'] ?>' == 'home') {
+        // LOAD ORDER DETAILS FROM HOME PAGE
+        if ('<?php echo $_from ?>' == 'home') {
             detail.load('./content/history-bill.php',{
-                    billID: '<?php echo $_POST['orderID']?>'
+                    billID: '<?php echo $_orderID ?>'
             })
         }
     })

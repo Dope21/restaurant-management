@@ -57,7 +57,7 @@
             ?>
             <div class="bill__details-list bill__menu" data-id="<?php echo $rowMenu['menu_id'] ?>" >
                 <p>
-                    <?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'.$rowMenu['menu_qt']?>
+                    <?php echo $rowMenu['menu_name'].' '.'x'.$rowMenu['menu_qt']?>
                 </p>
                 <p>
                     <?php echo $rowMenu['menu_total'] ?>
@@ -88,25 +88,17 @@
                 </p>
             </div>
         </div>
-        <?php
-        
-            if ($_POST['receive'] != ''){
-
-        ?>
             <div class="bill__line"></div>
             <div class="bill__details-change">
                 <div class="bill__details-list">
                     <p>receive</p>
-                    <p><?php echo $_POST['receive'] ?></p>
+                    <p><?php echo $rowDetail['order_receive'] ?></p>
                 </div>
                 <div class="bill__details-list">
                     <p>change</p>
-                    <p><?php echo $_POST['change'] ?></p>
+                    <p><?php echo $rowDetail['order_change'] ?></p>
                 </div>
             </div>
-        <?php 
-            }
-        ?>
         <?php 
             if($_SESSION['status'] == 'admin') { 
                 echo '<div class="bill__button">
@@ -192,7 +184,7 @@
                 foreach($resultMenu as $rowMenu) {
             ?>
             <div class="bill__details-list">
-                <p><?php echo $rowMenu['menu_name'].$rowMenu['order_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
+                <p><?php echo $rowMenu['menu_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
                 <p><?php echo $rowMenu['menu_total'] ?></p>
             </div>
             <?php 
