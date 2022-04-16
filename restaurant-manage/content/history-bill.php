@@ -253,6 +253,10 @@
         })
 
         deleteSumit.click(()=>{ 
+            // content.load('../history-query.php', {
+            //     orderID: '<?php echo $_billID ?>',
+            //     order: 'delete'
+            // })
             $.ajax({
                 url : './history-query.php',
                 type: 'post',

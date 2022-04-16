@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 25, 2022 at 03:41 AM
--- Server version: 8.0.17
--- PHP Version: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Apr 16, 2022 at 03:04 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `online_restaurant`
+-- Database: `restaurant`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `cate_id` int(11) NOT NULL,
-  `cate_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `cate_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -41,13 +40,13 @@ CREATE TABLE `category` (
 
 CREATE TABLE `customer` (
   `cus_id` int(11) NOT NULL,
-  `cus_username` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `cus_password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `cus_fname` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `cus_lname` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cus_username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `cus_password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `cus_fname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `cus_lname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `cus_address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `cus_number` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `cus_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `cus_number` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `cus_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -58,10 +57,10 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `delivery` (
   `order_id` int(11) NOT NULL,
-  `bill_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `order_price` double(7,2) NOT NULL,
-  `order_status` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `order_payment` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `order_status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `order_payment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `order_time` time NOT NULL,
   `order_date` date NOT NULL,
   `cus_id` int(11) NOT NULL
@@ -75,14 +74,14 @@ CREATE TABLE `delivery` (
 
 CREATE TABLE `employee` (
   `emp_id` int(10) NOT NULL,
-  `emp_username` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_password` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_number` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_fname` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_lname` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_status` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `emp_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `emp_username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_number` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_fname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_lname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `emp_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -93,13 +92,15 @@ CREATE TABLE `employee` (
 
 CREATE TABLE `front` (
   `order_id` int(11) NOT NULL,
-  `bill_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `order_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `order_cate` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `order_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `order_cate` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `order_price` double(7,2) NOT NULL,
-  `order_status` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `order_status` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `order_time` time NOT NULL,
-  `order_date` date NOT NULL
+  `order_date` date NOT NULL,
+  `order_receive` double(7,2) NOT NULL,
+  `order_change` double(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -110,11 +111,11 @@ CREATE TABLE `front` (
 
 CREATE TABLE `menu` (
   `menu_id` int(11) NOT NULL,
-  `menu_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `menu_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `menu_description` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `menu_name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `menu_type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `menu_description` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `menu_price` double(7,2) NOT NULL,
-  `menu_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `menu_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cate_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -126,7 +127,7 @@ CREATE TABLE `menu` (
 
 CREATE TABLE `order_details` (
   `detail_id` int(11) NOT NULL,
-  `bill_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_id` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `menu_id` int(11) NOT NULL,
   `menu_qt` int(10) NOT NULL,
   `menu_total` double(7,2) NOT NULL
