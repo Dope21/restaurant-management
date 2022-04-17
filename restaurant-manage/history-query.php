@@ -14,9 +14,7 @@
         } else {
             $sql = "DELETE FROM delivery WHERE bill_id = '$_billID'";
             mysqli_query($conn, $sql);
-        }
-
-            
+        }    
     }
 
 ?>
