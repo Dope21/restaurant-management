@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2022 at 03:04 PM
+-- Generation Time: Apr 18, 2022 at 04:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -84,6 +84,13 @@ CREATE TABLE `employee` (
   `emp_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`emp_id`, `emp_username`, `emp_password`, `emp_address`, `emp_number`, `emp_fname`, `emp_lname`, `emp_status`, `emp_image`) VALUES
+(1, 'admin', '123456789', '-', '9999999999', 'admin', 'admin', 'admin', '');
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +152,13 @@ CREATE TABLE `setting` (
   `set_serv` double(7,2) NOT NULL,
   `set_deliver` double(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`set_id`, `set_vat`, `set_serv`, `set_deliver`) VALUES
+(1, 7, 10.00, 20.00);
 
 --
 -- Indexes for dumped tables
@@ -224,7 +238,7 @@ ALTER TABLE `delivery`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `emp_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `emp_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `front`
@@ -248,7 +262,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
-  MODIFY `set_id` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `set_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
