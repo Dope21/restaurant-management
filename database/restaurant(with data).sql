@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2022 at 03:22 PM
+-- Generation Time: Apr 20, 2022 at 04:15 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -135,6 +135,13 @@ CREATE TABLE `menu` (
   `cate_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`menu_id`, `menu_name`, `menu_type`, `menu_description`, `menu_price`, `menu_image`, `cate_id`) VALUES
+(1, 'burrito', 'beef', '    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dicta blanditiis dolores. Offic', 80.00, 'burrito.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -259,7 +266,7 @@ ALTER TABLE `front`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_details`
