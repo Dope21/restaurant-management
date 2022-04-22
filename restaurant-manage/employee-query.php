@@ -72,16 +72,12 @@ if ($_POST['order'] == 'Update') {
     }
 
         $result = mysqli_query($conn, $sql);
-        // if (!$result) {
-        //     echo 'not working'.mysqli_error($conn) ;
-        // } else {
+
             if (isset($_GET['fromprofile'])){
                 header('location: ./index.php#profile');
             } else {
                 header('location: ./index.php#employee');
             }
-        // }
-
 }
 
 mysqli_query($conn, $sql);

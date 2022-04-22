@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2022 at 04:15 PM
+-- Generation Time: Apr 22, 2022 at 08:50 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -58,6 +58,13 @@ CREATE TABLE `customer` (
   `cus_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`cus_id`, `cus_username`, `cus_password`, `cus_fname`, `cus_lname`, `cus_address`, `cus_number`, `cus_image`) VALUES
+(2, 'thanasak', '11121112', 'thanasak', 'limsila', 'some where', '1234567890', '278523561_551085866434063_4389545182311135483_n.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -98,7 +105,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`emp_id`, `emp_username`, `emp_password`, `emp_address`, `emp_number`, `emp_fname`, `emp_lname`, `emp_status`, `emp_image`) VALUES
-(1, 'admin', '123456789', '-', '9999999999', 'admin', 'admin', 'admin', 'images.jpg');
+(1, 'admin', '123456789', '-', '9999999999', 'admin', 'admin', 'admin', '3073867 (1).jpg');
 
 -- --------------------------------------------------------
 
@@ -118,6 +125,13 @@ CREATE TABLE `front` (
   `order_receive` double(7,2) NOT NULL,
   `order_change` double(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `front`
+--
+
+INSERT INTO `front` (`order_id`, `bill_id`, `order_name`, `order_cate`, `order_price`, `order_status`, `order_time`, `order_date`, `order_receive`, `order_change`) VALUES
+(11, 'T22042219', 'levi', 'table', 181.20, 'paid', '13:03:00', '2022-04-22', 2378.00, 2196.80);
 
 -- --------------------------------------------------------
 
@@ -155,6 +169,14 @@ CREATE TABLE `order_details` (
   `menu_qt` int(10) NOT NULL,
   `menu_total` double(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`detail_id`, `bill_id`, `menu_id`, `menu_qt`, `menu_total`) VALUES
+(1, 'T2204229', 1, 2, 160.00),
+(10, 'T22042219', 1, 2, 160.00);
 
 -- --------------------------------------------------------
 
@@ -242,13 +264,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `delivery`
 --
 ALTER TABLE `delivery`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -260,7 +282,7 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `front`
 --
 ALTER TABLE `front`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -272,7 +294,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `setting`

@@ -207,6 +207,7 @@
                     module.removeClass('module-active')
                     moduleBg.removeClass('module__bg-active')
                     moduleDelete.removeClass('module__delete-active')
+                    content.load('./content/online.php')
                 }
             })
         })

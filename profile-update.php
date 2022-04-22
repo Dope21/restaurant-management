@@ -11,7 +11,7 @@
     $_address = $_POST['address'];
     $_number = $_POST['number'];
     $_image = $_FILES['image']['name'];
-    $path = '../restaurant_manage/cus_img/';
+    $path = './restaurant-manage/cus_img/';
 
     // echo $_fname.'<br>';
     // echo $_lname.'<br>';
