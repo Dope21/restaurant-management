@@ -282,13 +282,9 @@
                             data: { 
                                     insert: 'insert',
                                     menuID: $(obj).data('id')
-                                 },
-                            success: (response)=>{
-                                console.log(response);
-                            }
+                                 }
                         })
 
-                        console.log($(obj).data('id'));
 
                         //ADD STYLE INTO MENU ITEM
                         menuQt.addClass('menu__item-active')
@@ -315,9 +311,6 @@
                             data: { 
                                     delete: 'delete',
                                     menuID: menuDel
-                                 },
-                            success: (response)=>{
-                                console.log(response);
                             }
                         })
                     })
@@ -326,29 +319,14 @@
 
             // MENU ADD CART
             menuCart.click(()=>{
-
-                // if (menuCart.data('from') == 'delivery') {
-                //     $.ajax({
-                //         url: './cart.php',
-                //         type: 'post',
-                //         data: { 
-                //                 orderID: '<?php echo $_orderID ?>',
-                //                 from: 'delivery'
-                //               },
-                //         success: (response)=>{
-                //             content.load('./content/online.php');
-                //         }
-                //     })
-                // } else {
-                    $.ajax({
-                        url: './cart.php',
-                        type: 'post',
-                        data: { orderID: '<?php echo $_orderID ?>' },
-                        success: (response)=>{
-                            content.load('./content/order.php');
-                        }
-                    })
-                // } 
+                $.ajax({
+                    url: './cart.php',
+                    type: 'post',
+                    data: { orderID: '<?php echo $_orderID ?>' },
+                    success: (response)=>{
+                        content.load('./content/order.php');
+                    }
+                }) 
             })
 
             

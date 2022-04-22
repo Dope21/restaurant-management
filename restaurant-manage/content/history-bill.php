@@ -243,9 +243,6 @@
         const deleteBtn = $('#deleteBtn'),
               payment = $('.order__pay')
 
-              console.log($('#online').length);
-              console.log($('#front').length);
-
         deleteBtn.click(()=>{
             module.addClass('module-active')
             moduleBg.addClass('module__bg-active')
@@ -253,6 +250,13 @@
         })
 
         deleteSumit.click(()=>{ 
+
+            // TESTING ORDER DELETE
+            // content.load('./history-query.php', {
+            //     orderID: '<?php //echo $_billID ?>',
+            //     order: 'delete'
+            // })
+
             $.ajax({
                 url : './history-query.php',
                 type: 'post',

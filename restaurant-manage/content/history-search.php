@@ -39,7 +39,7 @@
                 </div>
                 <div class="order__item-subtitle">
                     <p class="order__type"><?php echo $rowOrder['order_cate'] ?></p>
-                    <p class="order__time"><?php echo $rowOrder['order_time'] ?></p>
+                    <p class="order__time"><?php echo substr($rowOrder['order_time'],0,5) ?></p>
                 </div>
             </div>
 <?php
@@ -65,6 +65,7 @@
                     ORDER BY order_date DESC";
         }
         $result = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result) > 0){
 
         foreach($result as $rowOrder){
 ?>
@@ -87,6 +88,10 @@
                 </div>
             </div>
 <?php 
+        }
+
+        } else {
+            echo '<div class="order__detail-empty">"There are no order"</div>';
         }
     }
 ?>

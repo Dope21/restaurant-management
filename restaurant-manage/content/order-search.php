@@ -4,7 +4,7 @@
 $_name = $_POST['name'];
 
 if($_name != '') {
-    $sqlOrder = "SELECT * FROM front WHERE '$_name' = order_name AND order_status = 'unpaid'";
+    $sqlOrder = "SELECT * FROM front WHERE order_name LIKE '%$_name%' AND order_status = 'unpaid'";
 } 
 
 $resultOrder = mysqli_query($conn, $sqlOrder);
@@ -16,6 +16,7 @@ if(!$resultOrder) {
 
 <div class="order__list">
     <?php 
+    if(mysqli_num_rows($resultOrder) > 0){
 
         foreach($resultOrder as $rowOrder){
     ?>
@@ -30,11 +31,14 @@ if(!$resultOrder) {
                     echo $rowOrder['order_cate'];
                 ?>
             </p>
-            <p class="order__time"><?php echo $rowOrder['order_time'] ?></p>
+            <p class="order__time"><?php echo substr($rowOrder['order_time'],0,5) ?></p>
         </div>
     </div>
     <?php 
         }
+    } else {
+        echo '<div class="order__detail-empty">"There are no order"</div>';
+    }
     ?>
 </div>
 
@@ -50,12 +54,6 @@ if(!$resultOrder) {
                 orderDetail.load('./content/order-bill.php', {
                     billID: $(item).data('id'),
                 });
-            })
-        })
-
-        payments.each((i, payment)=>{
-            $(payment).on('click',()=>{
-                content.load('./content/payment.php')
             })
         })
     })

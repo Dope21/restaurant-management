@@ -3,8 +3,6 @@
 
 $billID = $_POST['orderID'];
 
-// echo $_orderID;
-
 $sqlDetail = "SELECT * FROM front WHERE bill_id = '$billID'";
 $resultDetail = mysqli_query($conn, $sqlDetail);
 $rowDetail = mysqli_fetch_array($resultDetail);
@@ -100,19 +98,22 @@ $rowSet = mysqli_fetch_array($resultSet);
                 </div>
             </div>
             <?php
-            
-                if ($_POST['receive'] != ''){
+                $_receive = "";
+                $_change = "";
+                if (isset($_POST['receive'])){
+                    $_receive = $_POST['receive'];
+                    $_change = $_POST['change'];
 
             ?>
                 <div class="bill__line"></div>
                 <div class="bill__details-change pay">
                     <div class="bill__details-list">
                         <p>receive</p>
-                        <p><?php echo $_POST['receive'] ?></p>
+                        <p><?php echo $_receive ?></p>
                     </div>
                     <div class="bill__details-list">
                         <p>change</p>
-                        <p><?php echo $_POST['change'] ?></p>
+                        <p><?php echo $_change ?></p>
                     </div>
                 </div>
             <?php 
@@ -135,8 +136,8 @@ $rowSet = mysqli_fetch_array($resultSet);
                     orderID: '<?php echo $billID ?>',
                     total: total,
                     order: 'pay',
-                    receive: <?php echo $_POST['receive'] ?>,
-                    change: <?php echo $_POST['change'] ?>
+                    receive: '<?php echo $_receive ?>',
+                    change: '<?php echo $_change ?>'
 
                 },
                 success: function(response){
