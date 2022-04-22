@@ -2,7 +2,6 @@
 <?php 
 
     $billID = $_POST['billID'];
-    // if ($_POST['from'] == 'delivery') {
     if (isset($_POST['from'])) {
         $from = $_POST['from'];
         $sqlDetail = "SELECT * 
@@ -62,7 +61,6 @@
             </div>
             <div class="bill__details-list">
                 <?php 
-                    // if($_POST['from'] == 'delivery') {
                     if(isset($_POST['from'])) {
                 ?>
                     <p>Deliver Charge</p>
@@ -84,7 +82,6 @@
                 <p>Total</p>
                 <p>
                     <?php 
-                            // if($_POST['from'] == 'delivery') {
                             if(isset($_POST['from'])) {
                                 $serv = $rowSet['set_deliver'];
                             } else {

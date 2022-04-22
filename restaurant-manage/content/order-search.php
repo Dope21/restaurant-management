@@ -2,35 +2,11 @@
 <?php 
 
 $_name = $_POST['name'];
-// $_date = $_POST['date'];
-$_status = $_POST['status'];
 
-if($_POST['from'] == 'delivery') {
+if($_name != '') {
+    $sqlOrder = "SELECT * FROM front WHERE '$_name' = order_name AND order_status = 'unpaid'";
+} 
 
-    if($_POST['name'] != '') {
-        $sqlOrder = "SELECT * FROM delivery WHERE order_name = '$_name'";
-    }
-    if($_POST['status'] != '') {
-        $sqlOrder = "SELECT * FROM delivery WHERE order_status = '$_status'";
-    }
-
-    // if($_POST['status'] == '' && $_POST['date'] != '') {
-    //     $sqlOrder = "SELECT * FROM delivery WHERE order_date = '$_date'";
-    // }
-
-    // if($_POST['status'] != '' && $_POST['date'] != '') {
-    //     $sqlOrder = "SELECT * FROM delivery WHERE order_date = '$_date' AND order_status = '$_status'";
-    // }
-} else {
-    
-    if($_POST['name'] != '') {
-        $sqlOrder = "SELECT * FROM front WHERE '$_name' = order_name AND order_status = 'unpaid'";
-    } 
-    
-    // if ($_POST['date'] != '') {
-    //     $sqlOrder = "SELECT * FROM order_bill WHERE '$_date' = order_date AND order_status = 'unpaid'";
-    // } 
-}
 $resultOrder = mysqli_query($conn, $sqlOrder);
 
 if(!$resultOrder) {
@@ -51,15 +27,7 @@ if(!$resultOrder) {
         <div class="order__item-subtitle">
             <p class="order__type">
                 <?php 
-                    if ($_POST['from'] == 'delivery') {
-                            if ($rowOrder['order_payment'] != '') {
-                                echo '<span class="order__pay" >paid</span>';
-                            } else {
-                                echo 'unpaid';
-                            }
-                    } else {
-                        echo $rowOrder['order_cate'];
-                    } 
+                    echo $rowOrder['order_cate'];
                 ?>
             </p>
             <p class="order__time"><?php echo $rowOrder['order_time'] ?></p>
@@ -81,7 +49,6 @@ if(!$resultOrder) {
             $(item).on('click',()=>{
                 orderDetail.load('./content/order-bill.php', {
                     billID: $(item).data('id'),
-                    from: '<?php echo $_POST['from'] ?>'
                 });
             })
         })

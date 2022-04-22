@@ -10,6 +10,7 @@
             WHERE '$_filter' = order_status
             ORDER BY order_id DESC";
     $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) > 0){
 
     foreach($result as $rowOrder){
 ?>
@@ -32,7 +33,10 @@
             </div>
         </div>
 <?php 
-    }            
+        } 
+    } else {
+        echo '<div class="order__detail-empty">"There are no order"</div>';
+    }        
 ?>
 <script>
     $(document).ready(()=>{        
