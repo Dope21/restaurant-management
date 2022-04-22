@@ -18,7 +18,7 @@ $menuName = '';
     <?php 
     
         if ($menuName != '') {
-            $sqlMenu = "SELECT * FROM menu WHERE menu_name = '$menuName'";
+            $sqlMenu = "SELECT * FROM menu WHERE menu_name LIKE '%$menuName%'";
             $resultMenu = mysqli_query($conn, $sqlMenu);
             foreach ($resultMenu as $rowMenu) {
     ?>  

@@ -2,8 +2,12 @@
 <?php
 
 $billID = $_POST['orderID'];
+$_from = "";
+if (isset($_POST['from'])) {
+    $_from = $_POST['from'];
+}
 
-if ($_POST['from'] == 'delivery') {
+if ($_from == 'delivery') {
     $sqlDetail = "SELECT * FROM delivery WHERE bill_id = '$billID'";
     $resultDetail = mysqli_query($conn, $sqlDetail);
     $rowDetail = mysqli_fetch_array($resultDetail);
@@ -39,7 +43,7 @@ $rowSet = mysqli_fetch_array($resultSet);
     </div>  
 
     <a href=
-        "<?php if ($_POST['from'] == 'delivery') {
+        "<?php if ($_from == 'delivery') {
             echo '#online';
         } else {
             echo '#order';
@@ -65,7 +69,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 <div class="bill__details-list">
 
                     <?php 
-                        if($_POST['from'] == 'delivery') {
+                        if($_from == 'delivery') {
                             
                     ?>
                         <p>Status</p>
@@ -95,7 +99,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p>
                         <?php 
                         
-                            if($_POST['from'] == 'delivery') {
+                            if($_from == 'delivery') {
                                 if($rowDetail['order_payment']==''){
                                     echo '<span class="bill__details-pay">upload</span>';
                                 } else {
@@ -118,7 +122,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 </div>
                 
                 <?php 
-                    if($_POST['from'] == 'delivery') {
+                    if($_from == 'delivery') {
                 ?>
                     <div class="bill__details-list">
                         <p>Address</p>
@@ -157,7 +161,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 </div>
                 <div class="bill__details-list">
                     <?php 
-                        if($_POST['from'] == 'delivery') {
+                        if($_from == 'delivery') {
                     ?>
                         <p>Deliver Charge</p>
                         <p><?php echo $rowSet['set_deliver'] ?></p>
@@ -178,7 +182,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p>Total</p>
                     <p>
                         <?php 
-                            if($_POST['from'] == 'delivery') {
+                            if($_from == 'delivery') {
                                 $serv = $rowSet['set_deliver'];
                             } else {
                                 $serv = $rowSet['set_serv'];
@@ -192,7 +196,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 </div>
             </div>
         </div>
-        <div class="bill__button" data-from="<?php echo $_POST['from'] ?>">
+        <div class="bill__button" data-from="<?php echo $_from ?>">
             <button type="button" id="saveButton">Save</button>
             <button type="button" id="deleteButton">Delete</button>
             <button type="button" id="payButton">Pay</button>

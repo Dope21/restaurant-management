@@ -1,8 +1,4 @@
 <?php require_once('../database/connection.php') ?>
-<?php 
-// date_default_timezone_set("America/New_York");
-// $date = date('Y-m-d');
-?>
 <div class="black-bg"></div>
 <div class="order">
     <div class="module">
