@@ -1,7 +1,11 @@
 <?php require_once('../database/connection.php') ?>
 <?php 
-    $_filter = $_POST['filter'];
+
     $_date = $_POST['date'];
+    $_filter = "";
+    if (isset($_POST['filter'])) {
+        $_filter = $_POST['filter'];
+    }
 
     if ($_filter != 'delivery') {
 

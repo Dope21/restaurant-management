@@ -148,7 +148,6 @@
                              AND order_date = '$_date'";
                 $result_hour = mysqli_query($conn, $sql_hour);
                 $field_hour = mysqli_fetch_array($result_hour);
-                echo $field['price_hour'];
                 if ($field_hour['price_hour'] == '') {
                     $sum = 0;
                 } else {
