@@ -1,24 +1,65 @@
 <?php session_start() ?>
 <?php require_once('../database/connection.php') ?>
 <?php 
-    $_billID = $_POST['billID'];
 
-    if (substr($_billID,0,1) != 'D') {
+    // VARIABLES
+    $_billID = $_POST['billID'];
+    $_orderCate = substr($_billID,0,1);
+    $_Name = '';
+    $_Type = '';
+    $_Time = '';
+    $_Subtotal = '';
+    $_Charge = '';
+    $_Vat = '';
+    $_Total = '';
+    $_Address = '';
+    $_Phone = '';
+
+    // DETAILS FROM DATABASE
+    $sqlMenu = "SELECT * 
+                FROM `order_details` 
+                INNER JOIN `menu` 
+                    ON order_details.menu_id = menu.menu_id
+                WHERE bill_id = '$_billID'";
+    $resultMenu = mysqli_query($conn, $sqlMenu);
+
+    $sqlSet = "SELECT * FROM setting";
+    $resultSet = mysqli_query($conn, $sqlSet);
+    $rowSet = mysqli_fetch_array($resultSet);
+
+    // CHECK ORDER ID
+    if ($_orderCate != 'D') {
+
         $sqlDetaill = "SELECT * FROM front WHERE '$_billID' = bill_id";
 
         $resultDetail = mysqli_query($conn, $sqlDetaill);
         $rowDetail = mysqli_fetch_array($resultDetail);
+        
+        $_Name = $rowDetail['order_name'];
+        $_Type = $rowDetail['order_cate'];
+        $_Time = substr($rowDetail['order_time'],0,5).' '.$rowDetail['order_date'];
+        $_Charge = $rowSet['set_serv'];
+        $_Vat = $rowSet['set_vat'];
+        $_Total = $rowDetail['order_price'];
+    
+    } else {
 
-        $sqlMenu = "SELECT * 
-                    FROM `order_details` 
-                    INNER JOIN `menu` 
-                    ON order_details.menu_id = menu.menu_id
-                    WHERE bill_id = '$_billID'";
-        $resultMenu = mysqli_query($conn, $sqlMenu);
+        $sqlDetaill = "SELECT * 
+                       FROM delivery
+                       INNER JOIN customer
+                       ON delivery.cus_id = customer.cus_id 
+                       WHERE '$_billID' = bill_id";
+        $resultDetail = mysqli_query($conn, $sqlDetaill);
+        $rowDetail = mysqli_fetch_array($resultDetail);
 
-        $sqlSet = "SELECT * FROM setting";
-        $resultSet = mysqli_query($conn, $sqlSet);
-        $rowSet = mysqli_fetch_array($resultSet);
+        $_Name = $rowDetail['cus_fname'];
+        $_Address = $rowDetail['cus_address'];
+        $_Phone = $rowDetail['cus_number'];
+        $_Time = substr($rowDetail['order_time'],0,5).' '.$rowDetail['order_date'];
+        $_Charge = $rowSet['set_deliver'];
+        $_Vat = $rowSet['set_vat'];
+        $_Total = $rowDetail['order_price'];
+    }
 ?>
 
 <div class="bill">
@@ -26,28 +67,52 @@
         <p class="bill__head-total">Receipt</p>
         <div class="bill__head-number">
             <span>Number</span>
-            <p><?php echo $_billID ?></p>
+            <p><?= $_billID ?></p>
         </div>
         <div class="bill__line"></div>
     </div>
     <div class="bill__details">
         <div class="bill__detail-order">
             <p class="bill__details-title">Details</p>
+        <?php 
+            if ($_orderCate != 'D') {
+        ?>
             <div class="bill__details-list">
                 <p>Name</p>
-                <p><?php echo $rowDetail['order_name'] ?></p>
+                <p><?= $_Name ?></p>
             </div>
             <div class="bill__details-list">
                 <p>Type</p>
-                <p><?php echo $rowDetail['order_cate'] ?></p>
+                <p><?= $_Type ?></p>
             </div>
             <div class="bill__details-list">
                 <p>Time</p>
-                <p>
-                    <?php echo substr($rowDetail['order_time'],0,5) ?>
-                    <?php echo $rowDetail['order_date'] ?>
-                </p>
+                <p><?= $_Time ?></p>
+            </div>     
+        <?php 
+            } else {
+        ?>
+            <div class="bill__details-list not-print">
+                <p>Payment</p>
+                <p><span class="order__pay">paid</span></p>
             </div>
+            <div class="bill__details-list">
+                <p>Time</p>
+                <p><?= $_Time ?></p>
+            </div>
+                
+            <div class="bill__details-list">
+                <p>Address</p>
+                <p><?= $_Address ?></p>   
+            </div>
+
+            <div class="bill__details-list">
+                <p>Phone</p>
+                <p><?= $_Phone ?></p>   
+            </div>
+        <?php 
+            }
+        ?>
         </div>
         <div class="bill__line"></div>
         <div class="bill__details-items">
@@ -55,15 +120,16 @@
             <?php 
                 foreach($resultMenu as $rowMenu) {
             ?>
-            <div class="bill__details-list bill__menu" data-id="<?php echo $rowMenu['menu_id'] ?>" >
+            <div class="bill__details-list bill__menu" data-id="<?= $rowMenu['menu_id'] ?>" >
                 <p>
-                    <?php echo $rowMenu['menu_name'].' '.'x'.$rowMenu['menu_qt']?>
+                    <?= $rowMenu['menu_name'].' '.'x'.$rowMenu['menu_qt']?>
                 </p>
                 <p>
-                    <?php echo $rowMenu['menu_total'] ?>
+                    <?= $rowMenu['menu_total'] ?>
                 </p>
             </div>
             <?php 
+                    $_Subtotal = $rowMenu['menu_total'];
                 }
             ?>
         </div>
@@ -72,33 +138,41 @@
             <p class="bill__details-title">Price</p>
             <div class="bill__details-list">
                 <p>Subtotal</p>
-                <p><?php echo $rowDetail['order_price'] ?></p>
+                <p><?= $_Subtotal ?></p>
             </div>
             <div class="bill__details-list">
-                <p>Service Charge</p>
-                <p><?php echo $rowSet['set_serv'] ?></p>
+                <p>
+                    <?php if ($_orderCate != 'D') { 
+                        echo 'Service Charge'; 
+                    } else {
+                        echo 'Deliver Charge'; 
+                    } ?>
+                </p>
+                <p><?= $_Charge ?></p>
             </div>
             <div class="bill__details-list">
                 <p>VAT</p>
-                <p><?php echo $rowSet['set_vat'] ?>%</p>
+                <p><?= $_Vat ?>%</p>
             </div>
             <div class="bill__details-total">
                 <p>Total</p>
-                <p class="total"><?php echo $rowDetail['order_price'];?>
+                <p class="total"><?= $_Total ?>
                 </p>
             </div>
         </div>
-            <div class="bill__line"></div>
+        <div class="bill__line"></div>
+        <?php if ($_orderCate != 'D') { ?>
             <div class="bill__details-change">
                 <div class="bill__details-list">
                     <p>receive</p>
-                    <p><?php echo $rowDetail['order_receive'] ?></p>
+                    <p><?= $rowDetail['order_receive'] ?></p>
                 </div>
                 <div class="bill__details-list">
                     <p>change</p>
-                    <p><?php echo $rowDetail['order_change'] ?></p>
+                    <p><?= $rowDetail['order_change'] ?></p>
                 </div>
             </div>
+        <?php } ?>
         <?php 
             if($_SESSION['status'] == 'admin') { 
                 echo '<div class="bill__button">
@@ -109,128 +183,7 @@
 
     </div>
 </div>
-<?php 
-    } else {
-        $sqlDetaill = "SELECT * 
-                       FROM delivery
-                       INNER JOIN customer
-                       ON delivery.cus_id = customer.cus_id 
-                       WHERE '$_billID' = bill_id";
-        $resultDetail = mysqli_query($conn, $sqlDetaill);
-        $rowDetail = mysqli_fetch_array($resultDetail);
 
-        $sqlMenu = "SELECT * 
-                    FROM `order_details` 
-                    INNER JOIN `menu` 
-                    ON order_details.menu_id = menu.menu_id
-                    WHERE bill_id = '$_billID'";
-        $resultMenu = mysqli_query($conn, $sqlMenu);
-
-        $sqlSet = "SELECT * FROM setting";
-        $resultSet = mysqli_query($conn, $sqlSet);
-        $rowSet = mysqli_fetch_array($resultSet);
-?>
-<div class="bill">
-    <div class="bill__head">
-        <p class="bill__head-total">Receipt</p>
-        <div class="bill__head-number">
-            <span>Number</span>
-            <p><?php echo $_billID ?></p>
-        </div>
-        <div class="bill__line"></div>
-    </div>
-    <div class="bill__details">
-        <div class="bill__detail-order">
-            <p class="bill__details-title">Details</p>
-            <div class="bill__details-list">
-                <p>Name</p>
-                <p><?php echo $rowDetail['cus_fname'] ?></p>
-            </div>
-            <div class="bill__details-list not-print">
-                <p>Payment</p>
-                <p>
-                    <?php 
-                        if ($rowDetail['order_payment'] == "") {
-                            echo 'unpaid'; 
-                        } else {
-                            echo '<span class="order__pay">paid</span>';
-                        }  
-                    ?>       
-                </p>
-                </div>
-                <div class="bill__details-list">
-                    <p>Time</p>
-                    <p>
-                        <?php echo substr($rowDetail['order_time'],0,5) ?>
-                        <?php echo $rowDetail['order_date'] ?>
-                    </p>
-                </div>
-                
-                <div class="bill__details-list">
-                    <p>Address</p>
-                    <p><?php echo $rowDetail['cus_address'] ?></p>   
-                </div>
-
-                <div class="bill__details-list">
-                    <p>Phone</p>
-                    <p><?php echo $rowDetail['cus_number'] ?></p>   
-                </div>
-            </div>
-        <div class="bill__line"></div>
-
-        <div class="bill__details-items">
-            <p class="bill__details-title">Food items</p>
-            <?php 
-                foreach($resultMenu as $rowMenu) {
-            ?>
-            <div class="bill__details-list">
-                <p><?php echo $rowMenu['menu_name'].' '.'x'.' '.$rowMenu['menu_qt']?></p>
-                <p><?php echo $rowMenu['menu_total'] ?></p>
-            </div>
-            <?php 
-                }
-            ?>
-        </div>
-        <div class="bill__line"></div>
-        <div class="bill__details-price">
-            <p class="bill__details-title">Price</p>
-            <div class="bill__details-list">
-                <p>Subtotal</p>
-                <p><?php echo $rowDetail['order_price'] ?></p>
-            </div>
-            <div class="bill__details-list">
-                <?php 
-                    if($_POST['from'] == 'delivery') {
-                ?>
-                    <p>Deliver Charge</p>
-                    <p><?php echo $rowSet['set_deliver'] ?></p>
-                <?php 
-                    } else {
-                ?>
-                    <p>Deliver Charge</p>
-                    <p><?php echo $rowSet['set_deliver'] ?></p>
-                <?php 
-                    }
-                ?>
-            </div>
-            <div class="bill__details-list">
-                <p>VAT</p>
-                <p><?php echo $rowSet['set_vat'] ?>%</p>
-            </div>
-            <div class="bill__details-total">
-                <p>Total</p>
-                <p><?php echo $rowDetail['order_price'] + $rowSet['set_deliver']; ?>
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="bill__button">
-        <button type="button" id="deleteBtn">Delete</button>
-    </div>
-</div>
-<?php
-    }
-?>
 <script>
     $(document).ready(()=>{
         const module = $('.module'),
@@ -250,12 +203,6 @@
         })
 
         deleteSumit.click(()=>{ 
-
-            // TESTING ORDER DELETE
-            // content.load('./history-query.php', {
-            //     orderID: '<?php //echo $_billID ?>',
-            //     order: 'delete'
-            // })
 
             $.ajax({
                 url : './history-query.php',

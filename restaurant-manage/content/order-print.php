@@ -41,10 +41,6 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p>Type</p>
                     <p><?php echo $rowDetail['order_cate'] ?></p>
                 </div>
-                <!-- <div class="bill__details-list">
-                    <p>Payment</p>
-                    <p><?php //echo $rowDetail['order_status'] ?></p>
-                </div> -->
                 <div class="bill__details-list">
                     <p>Time</p>
                     <p>

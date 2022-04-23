@@ -9,7 +9,7 @@
 <div class="black-bg"></div>
 <div class="payment">
     <?php 
-        if($_POST['where'] == 'history') {
+        if(isset($_POST['where'])) {
             
         ?>
             <a href='#history' class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to history</a>
