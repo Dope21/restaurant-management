@@ -30,6 +30,8 @@
     $field_online = mysqli_fetch_array($result_online);
 
     $daily_sum = $field_front['front_sum'] + $field_online['online_sum'];
+    // echo $field_front['front_sum'];
+    echo $field_online['online_sum'];
 
     //ORDER COUNT
     $sql_Fcount = "SELECT COUNT(*) 

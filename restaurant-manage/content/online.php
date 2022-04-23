@@ -72,7 +72,7 @@
                                     }  
                                 ?>
                             </p>
-                            <p class="order__time"><?php echo $rowOrder['order_time'] ?></p>
+                            <p class="order__time"><?php echo substr($rowOrder['order_time'],0,5) ?></p>
                         </div>
                     </div>
             <?php 

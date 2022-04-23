@@ -68,6 +68,7 @@
     </div>
 </div>
 <script>
+
     //MODULE VARIABLE
     const moduleAdd = $('.module__add'),
           moduleSuccess = $('.module__success'),
