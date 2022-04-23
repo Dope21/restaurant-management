@@ -2,7 +2,7 @@
 <?php 
 
     $_date = $_POST['date'];
-    $_filter = "";
+    $_filter = '';
     if (isset($_POST['filter'])) {
         $_filter = $_POST['filter'];
     }
@@ -24,7 +24,7 @@
                              AND order_date = '$_date' 
                              ORDER BY order_date DESC";
             }
-            if ($_date != '' && $_filter == ""){
+            if ($_date != '' && $_filter == ''){
                 $sqlOrder = "SELECT * 
                              FROM front 
                              WHERE order_status = 'paid'
@@ -36,14 +36,14 @@
         if(mysqli_num_rows($resultOrder) > 0){
             foreach($resultOrder as $rowOrder){
 ?>
-            <div class="order__item" data-id="<?php echo $rowOrder['bill_id'] ?>">
+            <div class="order__item" data-id="<?= $rowOrder['bill_id'] ?>">
                 <div class="order__item-title">
-                    <p class="order__number"><?php echo $rowOrder['bill_id'] ?></p>
-                    <p class="order__name"><?php echo $rowOrder['order_name'] ?></p>
+                    <p class="order__number"><?= $rowOrder['bill_id'] ?></p>
+                    <p class="order__name"><?= $rowOrder['order_name'] ?></p>
                 </div>
                 <div class="order__item-subtitle">
-                    <p class="order__type"><?php echo $rowOrder['order_cate'] ?></p>
-                    <p class="order__time"><?php echo substr($rowOrder['order_time'],0,5) ?></p>
+                    <p class="order__type"><?= $rowOrder['order_cate'] ?></p>
+                    <p class="order__time"><?= substr($rowOrder['order_time'],0,5) ?></p>
                 </div>
             </div>
 <?php
@@ -52,7 +52,9 @@
             echo '<div class="order__detail-empty">"There are no order"</div>';
         }
     } else {
+        
         if($_date != '') {
+
             $sql = "SELECT * 
                     FROM delivery 
                     INNER JOIN customer
@@ -61,6 +63,7 @@
                     AND order_date = '$_date'
                     ORDER BY order_date DESC";
         } else {
+            
             $sql = "SELECT * 
                     FROM delivery 
                     INNER JOIN customer
@@ -68,15 +71,16 @@
                     WHERE 'received' = order_status
                     ORDER BY order_date DESC";
         }
+
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) > 0){
 
         foreach($result as $rowOrder){
 ?>
-            <div class="order__item" data-id="<?php echo $rowOrder['bill_id'] ?>">
+            <div class="order__item" data-id="<?= $rowOrder['bill_id'] ?>">
                 <div class="order__item-title">
-                    <p class="order__number"><?php echo $rowOrder['bill_id'] ?></p>
-                    <p class="order__name"><?php echo $rowOrder['cus_fname'] ?></p>
+                    <p class="order__number"><?= $rowOrder['bill_id'] ?></p>
+                    <p class="order__name"><?= $rowOrder['cus_fname'] ?></p>
                 </div>
                 <div class="order__item-subtitle">
                     <p class="order__type">
@@ -88,7 +92,7 @@
                             }  
                         ?>
                     </p>
-                    <p class="order__time"><?php echo $rowOrder['order_time'] ?></p>
+                    <p class="order__time"><?= substr($rowOrder['order_time'],0,5) ?></p>
                 </div>
             </div>
 <?php 

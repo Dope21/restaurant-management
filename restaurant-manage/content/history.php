@@ -1,7 +1,7 @@
 <?php require_once('../database/connection.php') ?>
 <?php 
     
-    //ORDER ID FROM HOME PAGE
+    //If CLICKED THE LINK FROM HOME PAGE
     $_from = '';
     $_orderID = '';
     if (isset($_POST['from'])) {
