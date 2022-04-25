@@ -60,8 +60,6 @@ if ($_POST['order'] == 'Update') {
         $_menuQT = $_menuQTs[$i];
         $_menuID = $_menuIDs[$i];
 
-        // echo $_menuID.' '.$_menuQT.'<br>';
-
         //GET TOTAL FROM EACH MENU
         $sqlMenu = "SELECT * 
                     FROM menu 
@@ -78,7 +76,6 @@ if ($_POST['order'] == 'Update') {
                        AND bill_id = '$_orderID'";
         mysqli_query($conn, $sqlDetails);
 
-        // echo mysqli_error($conn);
     }
 
     // SELECT SUM OF ALL ORDERS 

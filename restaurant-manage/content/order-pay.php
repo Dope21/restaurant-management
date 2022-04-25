@@ -20,13 +20,7 @@ $rowSet = mysqli_fetch_array($resultSet);
 
 ?>
 <div class="order">
-    <a href=
-        "<?php if ($_POST['from'] == 'delivery') {
-            echo '#online';
-        } else {
-            echo '#order';
-        } ?>" 
-        class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to order
+    <a href='#order' class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to order
     </a>
     <div class="bill" id="bill">
         <div class="bill__head">
@@ -45,23 +39,11 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p><?php echo $rowDetail['order_name'] ?></p>
                 </div>
                 <div class="bill__details-list">
-                    <?php 
-                        if($_POST['from'] == 'delivery') {
-                            
-                    ?>
-                        <p>Status</p>
-                        <p><?php echo $rowDetail['order_status']?></p>
-                    <?php 
-                        } else {
-                    ?>
-                        <p>Type</p>
-                        <select class="bill__input-detail" name="type">
-                            <option value="table" <?php if ($rowDetail['order_cate'] == 'table') {echo 'selected';} ?>>table</option>
-                            <option value="package" <?php if ($rowDetail['order_cate'] == 'package') {echo 'selected';} ?>>package</option>
-                        </select>
-                    <?php 
-                        }
-                    ?>
+                    <p>Type</p>
+                    <select class="bill__input-detail" name="type">
+                        <option value="table" <?php if ($rowDetail['order_cate'] == 'table') {echo 'selected';} ?>>table</option>
+                        <option value="package" <?php if ($rowDetail['order_cate'] == 'package') {echo 'selected';} ?>>package</option>
+                    </select>
                 </div>
                 <div class="bill__details-list">
                     <p>Time</p>
@@ -70,16 +52,6 @@ $rowSet = mysqli_fetch_array($resultSet);
                         <?php echo $rowDetail['order_date'] ?>
                     </p>
                 </div>
-                <?php 
-                    if($_POST['from'] == 'delivery') {
-                ?>
-                    <div class="bill__details-list">
-                        <p>Address</p>
-                        <p><?php echo $rowDetail['order_address'] ?></p>     
-                    </div>
-                <?php 
-                    }
-                ?>
             </div>
             <div class="bill__line"></div>
             <div class="bill__details-items">
@@ -158,8 +130,7 @@ $rowSet = mysqli_fetch_array($resultSet);
             content.load('./content/order-print.php',{
                 orderID: '<?php echo $billID ?>',
                 receive: Number(receive.val()),
-                change: change,
-                from: 'pay'
+                change: change
             })          
         })
     })

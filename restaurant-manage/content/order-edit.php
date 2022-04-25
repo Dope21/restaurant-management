@@ -2,20 +2,10 @@
 <?php
 
 $billID = $_POST['orderID'];
-$_from = "";
-if (isset($_POST['from'])) {
-    $_from = $_POST['from'];
-}
 
-if ($_from == 'delivery') {
-    $sqlDetail = "SELECT * FROM delivery WHERE bill_id = '$billID'";
-    $resultDetail = mysqli_query($conn, $sqlDetail);
-    $rowDetail = mysqli_fetch_array($resultDetail);
-} else {
     $sqlDetail = "SELECT * FROM front WHERE bill_id = '$billID'";
     $resultDetail = mysqli_query($conn, $sqlDetail);
     $rowDetail = mysqli_fetch_array($resultDetail);
-}
 
 $sqlMenu = "SELECT * 
             FROM `order_details` 
@@ -42,13 +32,7 @@ $rowSet = mysqli_fetch_array($resultSet);
         </div>
     </div>  
 
-    <a href=
-        "<?php if ($_from == 'delivery') {
-            echo '#online';
-        } else {
-            echo '#order';
-        } ?>" 
-        class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to order
+    <a href="#order"class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to order
     </a>
     <div class="bill">
         <div class="bill__head">
@@ -67,51 +51,15 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <input class="bill__input-detail"  type="text" name="name" value="<?php echo $rowDetail['order_name'] ?>">
                 </div>
                 <div class="bill__details-list">
-
-                    <?php 
-                        if($_from == 'delivery') {
-                            
-                    ?>
-                        <p>Status</p>
-                        <select class="bill__input-detail" name="status">
-                            <option value="wait" <?php if ($rowDetail['order_status'] == 'wait') {echo 'selected';} ?>>wait</option>
-                            <option value="cooking" <?php if ($rowDetail['order_status'] == 'cooking') {echo 'selected';} ?>>cooking</option>
-                            <option value="delivering" <?php if ($rowDetail['order_status'] == 'delivering') {echo 'selected';} ?>>delivering</option>
-                            <option value="received" <?php if ($rowDetail['order_status'] == 'received') {echo 'selected';} ?>>received</option>
-                        </select>
-                    <?php 
-                        } else {
-
-                    ?>
-                        <p>Type</p>
-                        <select class="bill__input-detail" name="type">
-                            <option value="table" <?php if ($rowDetail['order_cate'] == 'table') {echo 'selected';} ?>>table</option>
-                            <option value="package" <?php if ($rowDetail['order_cate'] == 'package') {echo 'selected';} ?>>package</option>
-                        </select>
-                    <?php 
-                        }
-                    
-                    ?>
-                
+                    <p>Type</p>
+                    <select class="bill__input-detail" name="type">
+                        <option value="table" <?php if ($rowDetail['order_cate'] == 'table') {echo 'selected';} ?>>table</option>
+                        <option value="package" <?php if ($rowDetail['order_cate'] == 'package') {echo 'selected';} ?>>package</option>
+                    </select>
                 </div>
                 <div class="bill__details-list">
                     <p>Payment</p>
-                    <p>
-                        <?php 
-                        
-                            if($_from == 'delivery') {
-                                if($rowDetail['order_payment']==''){
-                                    echo '<span class="bill__details-pay">upload</span>';
-                                } else {
-                                    echo '<span class="bill__details-pay">paid</span>';
-                                }
-                            } else {
-                                echo $rowDetail['order_status'];
-                            }
-                        
-                        ?>
-                        
-                    </p>
+                    <p><?php echo $rowDetail['order_status']; ?></p>
                 </div>
                 <div class="bill__details-list">
                     <p>Time</p>
@@ -120,18 +68,6 @@ $rowSet = mysqli_fetch_array($resultSet);
                         <?php echo $rowDetail['order_date'] ?>
                     </p>
                 </div>
-                
-                <?php 
-                    if($_from == 'delivery') {
-                ?>
-                    <div class="bill__details-list">
-                        <p>Address</p>
-                        <input class="bill__input-detail" type="text" name="address" value="<?php echo $rowDetail['order_address'] ?>">
-                            
-                    </div>
-                <?php 
-                    }
-                ?>
             </div>
             <div class="bill__line"></div>
             <div class="bill__details-items">
@@ -160,19 +96,8 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p><?php echo $rowDetail['order_price'] ?></p>
                 </div>
                 <div class="bill__details-list">
-                    <?php 
-                        if($_from == 'delivery') {
-                    ?>
-                        <p>Deliver Charge</p>
-                        <p><?php echo $rowSet['set_deliver'] ?></p>
-                    <?php 
-                        } else {
-                    ?>
-                        <p>Service Charge</p>
-                        <p><?php echo $rowSet['set_serv'] ?></p>
-                    <?php 
-                        }
-                    ?>
+                    <p>Service Charge</p>
+                    <p><?php echo $rowSet['set_serv'] ?></p>
                 </div>
                 <div class="bill__details-list">
                     <p>VAT</p>
@@ -182,12 +107,8 @@ $rowSet = mysqli_fetch_array($resultSet);
                     <p>Total</p>
                     <p>
                         <?php 
-                            if($_from == 'delivery') {
-                                $serv = $rowSet['set_deliver'];
-                            } else {
-                                $serv = $rowSet['set_serv'];
-                            }
-
+                            $serv = $rowSet['set_serv'];
+    
                             echo $rowDetail['order_price']+
                                 (($rowDetail['order_price']*$rowSet['set_vat'])/100)+
                                 $serv 
@@ -196,7 +117,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 </div>
             </div>
         </div>
-        <div class="bill__button" data-from="<?php echo $_from ?>">
+        <div class="bill__button">
             <button type="button" id="saveButton">Save</button>
             <button type="button" id="deleteButton">Delete</button>
             <button type="button" id="payButton">Pay</button>
@@ -225,7 +146,6 @@ $rowSet = mysqli_fetch_array($resultSet);
               deleteItems = $('.bill__del-item'),
               printButton = $('#printButton'),
               payButton = $('#payButton'),
-              from = $('.bill__button').data('from'),
               status = $('select[name="status"]'),
               address = $('input[name="address"]'),
               payment = $('.bill__details-pay')
@@ -250,53 +170,26 @@ $rowSet = mysqli_fetch_array($resultSet);
             menus.each((i,menu)=>{
                 menuIDs.push($(menu).data('id'))
             })
-            
-            if (from == 'delivery') {
                 
-                $.ajax({
-                    url : './online-query.php',
-                    type: 'post',
-                    data: { 
+            $.ajax({
+                url : './order-query.php',
+                type: 'post',
+                data: { 
 
-                    updateID: '<?php echo $billID ?>',
-                    name: name.val(),
-                    status: status.find(':selected').val(),
-                    address: address.val(),
-                    menuQTs: menuQTs,
-                    menuIDs: menuIDs,
-                    order: 'update'
-                    
-                },
-                    success: function(response){
-                        content.load('./content/order-edit.php',{
-                            orderID: '<?php echo $billID ?>',
-                            from: 'delivery'
-                        })
-                    }
-                })
-            } else {
+                updateID: '<?php echo $billID ?>',
+                name: name.val(),
+                type: type.find(':selected').val(),
+                menuQTs: menuQTs,
+                menuIDs: menuIDs,
+                order: 'Update'
                 
-                $.ajax({
-                    url : './order-query.php',
-                    type: 'post',
-                    data: { 
-
-                    updateID: '<?php echo $billID ?>',
-                    name: name.val(),
-                    type: type.find(':selected').val(),
-                    menuQTs: menuQTs,
-                    menuIDs: menuIDs,
-                    order: 'Update'
-                    
-                },
-                    success: function(response){
-                        content.load('./content/order-edit.php',{
-                            orderID: '<?php echo $billID ?>'
-                        })
-                    }
-                })
-            }
-            
+            },
+                success: function(response){
+                    content.load('./content/order-edit.php',{
+                        orderID: '<?php echo $billID ?>'
+                    })
+                }
+            })  
         })
 
         deleteCancel.click(()=>{
@@ -305,36 +198,19 @@ $rowSet = mysqli_fetch_array($resultSet);
         })
 
         deleteSumit.click(()=>{
-            if (from == 'delivery') {
-                $.ajax({
-                    url : './online-query.php',
-                    type: 'post',
-                    data: { 
+            $.ajax({
+                url : './order-query.php',
+                type: 'post',
+                data: { 
 
-                        deleteID: '<?php echo $billID ?>',
-                        order: 'delete'
-                
-                    },
-                    success: function(response){
-                        content.load('./content/online.php')
-                    }
-                })
-            } else {
-                $.ajax({
-                    url : './order-query.php',
-                    type: 'post',
-                    data: { 
-
-                        deleteID: '<?php echo $billID ?>',
-                        order: 'delete'
-                
-                    },
-                    success: function(response){
-                        content.load('./content/order.php')
-                    }
-                })
-            }
+                    deleteID: '<?php echo $billID ?>',
+                    order: 'delete'
             
+                },
+                success: function(response){
+                    content.load('./content/order.php')
+                }
+            })
         })  
 
         deleteItems.each((i, item) =>{
@@ -366,8 +242,7 @@ $rowSet = mysqli_fetch_array($resultSet);
 
         payButton.click(()=>{
             content.load('./content/order-pay.php',{
-                orderID: '<?php echo $billID ?>',
-                from: from
+                orderID: '<?php echo $billID ?>'
             })
         })
 

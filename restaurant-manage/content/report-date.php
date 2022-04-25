@@ -120,9 +120,6 @@
             }
         ?>
         </div>
-        <!-- <div class="report__chart">
-            <canvas id="myChart"></canvas>
-        </div> -->
         <script>
             var front = <?php echo json_encode($front_hours); ?>;
             var online = <?php echo json_encode($online_hours); ?>;

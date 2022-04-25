@@ -110,9 +110,6 @@
             array_push($online_months, $sum);
         }
     ?>
-    <!-- <div class="report__chart">
-        <canvas id="myChart"></canvas>
-    </div> -->
     <script>
             var front = <?php echo json_encode($front_months); ?>;
             var online = <?php echo json_encode($online_months); ?>;

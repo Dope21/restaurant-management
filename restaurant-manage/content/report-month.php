@@ -2,8 +2,6 @@
 <?php 
     $_month = $_POST['month'];
     $_year = $_POST['year'];
-    // echo $_month.'<br>';
-    // echo $_year.'<br>';
 
     $sql_front = "SELECT SUM(order_price) 
                   AS front_sum
