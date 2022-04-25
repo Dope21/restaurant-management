@@ -175,7 +175,7 @@
             var scale = {
                         y: {
                             beginAtZero: true,
-                            max: 20000,
+                            max: 10000,
                             min: 0,
                             ticks: {
                                 stepSize: 2000
