@@ -64,7 +64,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 <div class="bill__details-list">
                     <p>Time</p>
                     <p>
-                        <?php echo $rowDetail['order_time'] ?>
+                        <?php echo substr($rowDetail['order_time'],0,5) ?>
                         <?php echo $rowDetail['order_date'] ?>
                     </p>
                 </div>
