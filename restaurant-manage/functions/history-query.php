@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
 
     if ($_POST['order'] == 'delete') {

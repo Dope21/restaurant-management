@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php session_start() ?>
 <?php 
 

@@ -1,4 +1,4 @@
-<?php require_once("./database/connection.php") ?>    
+<?php require_once("../database/connection.php") ?>    
 <?php session_start() ?>
 <?php 
 
@@ -7,7 +7,7 @@
 
     if ($_POST['password'] != $_POST['password-check']){
         $m_pass = "The two passwords don't match";
-        header('location: ./register.php?mpass='.$m_pass);
+        header('location: ../content/register.php?mpass='.$m_pass);
     }
 
     $_user = $_POST['username'];
@@ -21,7 +21,7 @@
     $sql_check = "SELECT * FROM employee WHERE emp_username = '$_user'";
     if (mysqli_num_rows(mysqli_query($conn, $sql_check)) != 0) {
         $m_user = 'This username is already been used';    
-        header('location: ./register.php?muser='.$m_user);
+        header('location: ../content/register.php?muser='.$m_user);
     } else {
         $sql = "INSERT INTO employee (emp_username, emp_password, emp_address, emp_number, emp_fname, emp_lname, emp_status) 
                 VALUES ('$_user', '$_pass', '$_address', '$_number', '$_fname', '$_lname', 'employee')";
@@ -30,7 +30,7 @@
         if(!$query) {
             echo mysqli_error($conn);
         } else {
-            header('location: ./login.php');
+            header('location: ../content/login.php');
         }
     }
 

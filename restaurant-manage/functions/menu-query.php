@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
 
 if ($_POST['order'] == 'add'){
@@ -34,7 +34,7 @@ if ($_POST['order'] == 'update') {
     $_price = $_POST['price'];
     $_cate = $_POST['cate'];
     $_image = $_FILES['image']['name'];
-    $path = 'menu_img/';
+    $path = '../asset/menu_img/';
 
     if ($_image == "" ) {
         $sql = "UPDATE menu SET
@@ -70,7 +70,7 @@ if ($_POST['order'] == 'update') {
             echo 'not working'.mysqli_error($conn) ;
         } else {
 
-            header('location: ./index.php#menu');   
+            header('location: ../index.php#menu');   
     }
 }
 

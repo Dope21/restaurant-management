@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
 
 if ($_POST['order'] == 'add'){
@@ -27,7 +27,7 @@ if ($_POST['order'] == 'Update') {
         if (!$result) {
             echo 'not working'.mysqli_error($conn) ;
         } else {
-            header('location: ./index.php#category');
+            header('location: ../index.php#category');
         }
 
 }

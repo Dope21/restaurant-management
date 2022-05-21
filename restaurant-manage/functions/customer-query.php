@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
 
 if ($_POST['order'] == 'add'){
@@ -34,7 +34,7 @@ if ($_POST['order'] == 'Update') {
     $_address = $_POST['address'];
     $_number = $_POST['number'];
     $_image = $_FILES['image']['name'];
-    $path = 'cus_img/';
+    $path = '../asset/cus_img/';
 
     // echo $_fname.'<br>';
     // echo $_lname.'<br>';
@@ -71,7 +71,7 @@ if ($_POST['order'] == 'Update') {
         if (!$result) {
             echo 'not working'.mysqli_error($conn) ;
         } else {
-            header('location: ./index.php#customer');
+            header('location: ../index.php#customer');
         }
 
 }

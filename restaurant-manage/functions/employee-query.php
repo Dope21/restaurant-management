@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
 
 if ($_POST['order'] == 'add'){
@@ -35,7 +35,7 @@ if ($_POST['order'] == 'Update') {
     $_number = $_POST['number'];
     $_status = $_POST['status'];
     $_image = $_FILES['image']['name'];
-    $path = 'emp_img/';
+    $path = '../asset/emp_img';
 
     // echo $_fname.'<br>';
     // echo $_lname.'<br>';
@@ -74,9 +74,9 @@ if ($_POST['order'] == 'Update') {
         $result = mysqli_query($conn, $sql);
 
             if (isset($_GET['fromprofile'])){
-                header('location: ./index.php#profile');
+                header('location: ../index.php#profile');
             } else {
-                header('location: ./index.php#employee');
+                header('location: ../index.php#employee');
             }
 }
 
