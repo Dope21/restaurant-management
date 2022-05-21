@@ -11,7 +11,7 @@
         foreach($rs_menu as $menu) {
     ?>
         <div class="card menu-card col-md-4 px-0" style="width: 18rem;">
-            <img src="../restaurant_manage/menu_img/<?php if($menu['menu_image'] == ''){
+            <img src="./restaurant-manage/asset/menu_img/<?php if($menu['menu_image'] == ''){
                 echo 'menu-defult.jpg';
             } else {
                 echo $menu['menu_image'];

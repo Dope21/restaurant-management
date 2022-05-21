@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php session_start() ?>
 <?php 
     //VARIABLE FOR UPDATE
@@ -11,7 +11,7 @@
     $_address = $_POST['address'];
     $_number = $_POST['number'];
     $_image = $_FILES['image']['name'];
-    $path = './restaurant-manage/cus_img/';
+    $path = '../restaurant-manage/asset/cus_img/';
 
     // echo $_fname.'<br>';
     // echo $_lname.'<br>';
@@ -45,7 +45,7 @@
     }
 
     mysqli_query($conn, $sql);
-    header('location: ./index.php?content=profile')
+    header('location: ../index.php?content=profile')
 
 
 ?>

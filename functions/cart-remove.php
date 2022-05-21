@@ -13,5 +13,5 @@
         } 
     }
 
-    header('location: index.php?content=cart');
+    header('location: ../index.php?content=cart');
 ?>

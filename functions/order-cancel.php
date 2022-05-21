@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php 
     $_billID = $_GET['orderID'];
 
@@ -6,5 +6,5 @@
     mysqli_query($conn, $sqlDetails);
     $sql = "DELETE FROM delivery WHERE bill_id = '$_billID'";
     mysqli_query($conn, $sql);
-    header('location: index.php?content=order');
+    header('location: ../index.php?content=order');
 ?>

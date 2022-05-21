@@ -1,5 +1,5 @@
 <?php session_start() ?>
-<?php require_once('./database/connection.php'); ?>
+<?php require_once('../database/connection.php'); ?>
 <?php 
 
     date_default_timezone_set("Asia/Bangkok");
@@ -84,5 +84,5 @@
     $rs_delivery = mysqli_query($conn, $sql_delivery);
     
     unset($_SESSION['cart']);
-    header('location: ./index.php?content=order');
+    header('location: ../index.php?content=order');
 ?>

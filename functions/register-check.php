@@ -1,4 +1,4 @@
-<?php require_once('./database/connection.php') ?>
+<?php require_once('../database/connection.php') ?>
 <?php session_start() ?>
 <?php 
 
@@ -23,7 +23,7 @@
         }
     
     if ($ms_pass != '' || $ms_user != '') {
-        header('location: ./register.php?ms_user='.$ms_user.'&ms_pass='.$ms_pass);
+        header('location: ../components/register.php?ms_user='.$ms_user.'&ms_pass='.$ms_pass);
     }
 
     $sql = "INSERT INTO customer (cus_username, cus_password, cus_address, cus_number, cus_fname, cus_lname) 
@@ -33,7 +33,7 @@
     if (!$query) {
         echo mysqli_error($conn);
     } else {
-        header('location: ./login.php');
+        header('location: ../components/login.php');
     }
 
 ?>
