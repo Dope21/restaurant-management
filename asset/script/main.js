@@ -76,12 +76,12 @@ $(document).ready(()=>{
 
         $.ajax({
             type: "POST",
-            url: './cart-update.php',
+            url: './functions/cart-update.php',
             data: {
                 cartQt: value
             },
             success: ()=>{
-                window.location="index.php?content=cart"
+                window.location="./index.php?content=cart"
             }
         });
     }) 
