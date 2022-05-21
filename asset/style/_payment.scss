@@ -1,0 +1,51 @@
+.payment{
+    padding-top: 70px;
+    min-height: 500px;
+
+    &__title{
+        font-size: $text-large;
+        font-weight: 600;
+    }
+
+    &__upload{
+        color: $color-main;
+        font-size: $text-extra;
+    }
+
+    input[type="file"]{
+        opacity: 0;
+        cursor: pointer;
+        left: 0;
+        height: 100%;
+    }
+
+    &__img{
+        img{
+            max-width: 350px;
+            width: 100%;
+        }
+    }
+
+    &__details{
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__detail{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: $text-large;
+        font-weight: 500;
+
+        img{
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: $shadow;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+.menu{
+    padding-top: 70px;
+
+    &__search{
+
+        input {
+            max-width: 250px;
+            width: 100%;
+            height: 40px;
+            border: 1px solid #AEAEAE;
+            border-radius: 5px;
+            padding-left: .8rem;
+        }
+
+    }
+
+    &__filter{
+
+        &-box{
+            border: 1px solid $color-main;
+            color: $color-main;
+            font-size: $text-medium;
+            padding: .8rem 1.25rem;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+
+            &-active{
+                background: $color-main;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
