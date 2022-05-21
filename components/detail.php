@@ -9,7 +9,7 @@
 <div class="detail container row pb-5">
     <div class="col-lg-6 d-flex align-items-center justify-content-center mt-4 mt-lg-5">
         <div class="detail__img">
-            <img src="./restaurant-manage/menu_img/<?php if($row['menu_image'] == ''){
+            <img src="./restaurant-manage/asset/menu_img/<?php if($row['menu_image'] == ''){
                     echo 'menu-defult.jpg';
                 } else {
                     echo $row['menu_image'];
@@ -22,7 +22,7 @@
         <p class="detail__desc mb-4"><?php echo $row['menu_description'] ?></p>
         <span class="detail__price">฿ <?php echo $row['menu_price'] ?></span>
         
-        <form class="d-flex align-items-center mt-4 gap-4" action="./cart-add.php" method="POST">
+        <form class="d-flex align-items-center mt-4 gap-4" action="./functions/cart-add.php" method="POST">
                 <div class="detail__qt d-flex align-items-center justify-content-between">
                     <i class="fas fa-minus" id="minus"></i>
                     <span class="detail__qt-number">0</span>

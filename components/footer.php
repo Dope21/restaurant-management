@@ -7,8 +7,8 @@
         <ul class="footer__nav d-flex gap-3 flex-column">
             <li><a href="./index.php?content=home">Home</a> </li>
             <li><a href="./index.php?content=menu">Menu</a> </li>
-            <li><a href="./login.php">Login</a> </li>
-            <li><a href="./register.php">Register</a> </li>
+            <li><a href="./components/login.php">Login</a> </li>
+            <li><a href="./components/register.php">Register</a> </li>
         </ul>
     </div>
     <div class="col-md-4">

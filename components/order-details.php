@@ -33,7 +33,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="./order-received.php?orderID=<?php echo $billID ?>" class="btn call-btn">Yes</a>
+        <a href="../functions/order-received.php?orderID=<?php echo $billID ?>" class="btn call-btn">Yes</a>
       </div>
     </div>
   </div>
@@ -61,7 +61,7 @@
             if($rowDetail['order_status'] != 'waiting'){
                 echo '<button type="button" class="btn call-btn" data-bs-dismiss="modal">Yes</button>';
             } else {
-                echo '<a href="./order-cancel.php?orderID='.$billID.'" class="btn call-btn">Yes</a>';
+                echo '<a href="./functions/order-cancel.php.php?orderID='.$billID.'" class="btn call-btn">Yes</a>';
             }
           ?>  
       </div>

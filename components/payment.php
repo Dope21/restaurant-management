@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <form class="d-flex justify-content-center align-items-center gap-4" action="./pay-upload.php?orderID=<?php echo $_orderID ?>" method="POST" enctype="multipart/form-data">
+    <form class="d-flex justify-content-center align-items-center gap-4" action="./functions/pay-upload.php?orderID=<?php echo $_orderID ?>" method="POST" enctype="multipart/form-data">
         <div class="position-relative">
             <input type="file" class="position-absolute w-100" name="image" id="inputFile">
             <button type="button" class="btn call-btn">Upload</button>
@@ -36,7 +36,7 @@
         <img src="
         <?php 
             if ($row_pay['order_payment'] != '') {
-            echo './restaurant-manage/payment_img/'.$row_pay['order_payment']; 
+            echo './restaurant-manage/asset/payment_img/'.$row_pay['order_payment']; 
             }
         ?>" id="payment">
     </div>

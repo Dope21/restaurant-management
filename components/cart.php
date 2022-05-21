@@ -21,11 +21,11 @@
         <?php 
             if ($_userID == '') {
         ?>
-            <button class="btn call-btn" onclick="window.location='./login.php'">Confirm Order</button>
+            <button class="btn call-btn" onclick="window.location='./components/login.php'">Confirm Order</button>
         <?php 
             }  else {
         ?>
-            <button class="btn call-btn" onclick="window.location='./cart-confirm.php'">Confirm Order</button>
+            <button class="btn call-btn" onclick="window.location='./functions/cart-confirm.php'">Confirm Order</button>
         <?php 
             }
         ?>
@@ -50,7 +50,7 @@
         <div class="cart__menu d-flex align-items-end justify-content-between mb-2">
             <div class="cart__menu-detail d-flex align-items-center gap-3">
                 <div class="cart__menu-img">
-                    <img src="./restaurant-manage/menu_img/<?php if($row_cart['menu_image'] == ''){
+                    <img src="./restaurant-manage/asset/menu_img/<?php if($row_cart['menu_image'] == ''){
                     echo 'menu-defult.jpg';
                 } else {
                     echo $row_cart['menu_image'];
@@ -64,7 +64,7 @@
             </div>
             <div class="cart__menu-price d-flex align-items-center">
                 <p><?php echo $_SESSION['cart'][$i]['menuQT']*$row_cart['menu_price'] ?></p>
-                <a href="./cart-remove.php?menuID=<?php echo $_menuID ?>"><i class="fas fa-trash-alt"></i></a>
+                <a href="./functions/cart-remove.php?menuID=<?php echo $_menuID ?>"><i class="fas fa-trash-alt"></i></a>
             </div>
         </div>
     <?php 
@@ -114,6 +114,6 @@
     ?>
     <div class="cart__button mt-3 mt-lg-5 d-flex align-items-center justify-content-center gap-3">
         <button id="cart__update" type="button">Update Cart</button>
-        <button id="cart__clear" type="button" onclick="window.location='./cart-clear.php'">Clear Cart</button>
+        <button id="cart__clear" type="button" onclick="window.location='./functions/cart-clear.php'">Clear Cart</button>
     </div>
 </div>

@@ -10,14 +10,14 @@ $rowPro = mysqli_fetch_array($resultPro);
 ?>
 <div class="container py-5">
 
-<form class="profile mt-5" action="./profile-update.php?userID=<?php echo $_userID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
+<form class="profile mt-5" action="./functions/profile-update.php?userID=<?php echo $_userID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
     <div class="profile__name">
         <p><?php echo $rowPro['cus_fname'].' '.$rowPro['cus_lname']?></p>
     </div>
 
     <div class="profile__icon">
         <div class="profile__img">
-            <img src="./restaurant-manage/cus_img/<?php if($rowPro['cus_image'] != '') {
+            <img src="./restaurant-manage/asset/cus_img/<?php if($rowPro['cus_image'] != '') {
                 echo $rowPro['cus_image'];
             } else {
                 echo 'user-defult.png';

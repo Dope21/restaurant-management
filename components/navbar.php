@@ -68,7 +68,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown nav-profile d-flex">
-                        <img src="./restaurant-manage/cus_img/<?php if ($row['cus_image'] == ''){
+                        <img src="./restaurant-manage/asset/cus_img/<?php if ($row['cus_image'] == ''){
                             echo 'user-defult.png';
                         } else {
                             echo $row['cus_image'];
@@ -79,14 +79,14 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li><a class="dropdown-item" href="./index.php?content=profile"><i class="fas fa-user-cog me-2"></i>Setting</a></li>
-                            <li><a class="dropdown-item" href="./logout.php"><i class="fas fa-door-open me-2"></i>Logout</a></li>
+                            <li><a class="dropdown-item" href="./functions/logout.php"><i class="fas fa-door-open me-2"></i>Logout</a></li>
                         </ul>
                     </li>
                 <?php
                     } else {
                 ?>
                     <li class="nav-item">
-                        <a class="nav-link login-button rounded-pill px-4" href="./login.php" tabindex="-1" aria-disabled="true">LOGIN</a>
+                        <a class="nav-link login-button rounded-pill px-4" href="./components/login.php" tabindex="-1" aria-disabled="true">LOGIN</a>
                     </li>
                 <?php 
                     }

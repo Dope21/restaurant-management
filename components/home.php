@@ -27,7 +27,7 @@
         <button type="button" class="btn call-btn"
         <?php 
             if($_userID == '') {
-                echo 'onclick="window.location='."'./register.php'".'"';
+                echo 'onclick="window.location='."'./components/register.php'".'"';
             } else {
                 echo 'onclick="window.location='."'./index.php?content=menu'".'"';
             }
@@ -68,7 +68,7 @@
                         foreach($rs_fav as $fav) {
                     ?>
                         <div class="card menu-card col-md-4 px-0" style="width: 18rem;">
-                            <img src="./restaurant-manage/menu_img/<?php if($fav['menu_image'] == ''){
+                            <img src="./restaurant-manage/asset/menu_img/<?php if($fav['menu_image'] == ''){
                                 echo 'menu-defult.jpg';
                             } else {
                                 echo $fav['menu_image'];
@@ -104,7 +104,7 @@
                             foreach($rs_fav as $fav) {
                         ?>
                             <div class="card menu-card col-md-4 px-0" style="width: 18rem;">
-                                <img src="./restaurant-manage/menu_img/<?php if($fav['menu_image'] == ''){
+                                <img src="./restaurant-manage/asset/menu_img/<?php if($fav['menu_image'] == ''){
                                     echo 'menu-defult.jpg';
                                 } else {
                                     echo $fav['menu_image'];
@@ -157,7 +157,7 @@
             <button type="button" class="btn call-btn mt-4"
                 <?php 
                     if($_userID == '') {
-                        echo 'onclick="window.location='."'./register.php'".'"';
+                        echo 'onclick="window.location='."'./components/register.php'".'"';
                     } else {
                         echo 'onclick="window.location='."'./index.php?content=menu'".'"';
                     }
@@ -178,7 +178,7 @@
         </div>
         <div class="col-md-6 invite__action d-flex flex-column align-items-center justify-content-center">
             <p>Don’t have an account yet?</p>
-            <a href="./register.php">Register now</a>
+            <a href="./components/register.php">Register now</a>
         </div>
     </div>
 </section>
