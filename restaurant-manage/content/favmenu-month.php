@@ -11,9 +11,6 @@
         $_month = $_POST['month'];
         $_year = $_POST['year'];
 
-        // echo $_month.'<br>';
-        // echo $_year.'<br>';
-
         $sql_menu = "SELECT menu_name, 
                             SUM(order_details.menu_qt) AS menu_count
                         FROM order_details

@@ -105,7 +105,7 @@ $rowSet = mysqli_fetch_array($resultSet);
                 <div class="bill__details-change pay">
                     <div class="bill__details-list">
                         <p>receive</p>
-                        <p><?php echo $_receive ?></p>
+                        <p><?php echo $_receive ?></p>pay/
                     </div>
                     <div class="bill__details-list">
                         <p>change</p>
@@ -125,7 +125,7 @@ $rowSet = mysqli_fetch_array($resultSet);
         if ($('.pay').length) {
             const total = Number($('.total').text())
             $.ajax({
-                url : './order-query.php',
+                url : './functions/order-query.php',
                 type: 'post',
                 data: { 
 

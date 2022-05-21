@@ -83,9 +83,6 @@
 
     <div class="employee__add">
         <button type="button" id="Add" class="button"><i class="fas fa-plus"></i>Add User</button>
-        <!-- <div class="employee__print">
-            <button type="button" onclick="window.location='./emp_print.php'">Print</button>
-        </div> -->
     </div>
     <div class="employee__table" id="tableWrapper">
         <table id="dataTable" class="display">
@@ -173,7 +170,7 @@
                 } 
 
                     $.ajax({
-                    url : './employee-query.php',
+                    url : './functions/employee-query.php',
                     type: 'post',
                     data: { 
                         
@@ -213,7 +210,7 @@
 
             deleteSumit.click(()=>{
                 $.ajax({
-                    url : './employee-query.php',
+                    url : './functions/employee-query.php',
                     type: 'post',
                     data: { 
                         

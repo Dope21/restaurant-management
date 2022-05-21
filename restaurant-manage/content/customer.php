@@ -144,7 +144,7 @@
                 } 
 
                     $.ajax({
-                    url : './customer-query.php',
+                    url : './functions/customer-query.php',
                     type: 'post',
                     data: { 
                         
@@ -183,7 +183,7 @@
 
             deleteSumit.click(()=>{
                 $.ajax({
-                    url : './customer-query.php',
+                    url : './functions/customer-query.php',
                     type: 'post',
                     data: { 
                         

@@ -172,7 +172,7 @@ $rowSet = mysqli_fetch_array($resultSet);
             })
                 
             $.ajax({
-                url : './order-query.php',
+                url : './functions/order-query.php',
                 type: 'post',
                 data: { 
 
@@ -199,7 +199,7 @@ $rowSet = mysqli_fetch_array($resultSet);
 
         deleteSumit.click(()=>{
             $.ajax({
-                url : './order-query.php',
+                url : './functions/order-query.php',
                 type: 'post',
                 data: { 
 
@@ -216,7 +216,7 @@ $rowSet = mysqli_fetch_array($resultSet);
         deleteItems.each((i, item) =>{
             $(item).on('click',()=>{
                 $.ajax({
-                    url : './order-query.php',
+                    url : './functions/order-query.php',
                     type: 'post',
                     data: { 
 
@@ -253,5 +253,4 @@ $rowSet = mysqli_fetch_array($resultSet);
         })
     })
 
-    
 </script>

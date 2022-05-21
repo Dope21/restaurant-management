@@ -50,9 +50,9 @@ $conDate = date('d').' '.$month[date('m')].', '.date('Y');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style/main-style.css?<?php echo time(); ?>">
+    <link rel="stylesheet" href="./asset/style/main-style.css?<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" type="image/png" href="./favicon.svg">
+    <link rel="shortcut icon" type="image/png" href="./asset/favicon.svg">
     <title>manage</title>
 </head>
 <body>
@@ -106,7 +106,7 @@ $conDate = date('d').' '.$month[date('m')].', '.date('Y');
             </div>
             <div class="header__profile">
                 <div class="header__img">
-                    <img src="./emp_img/<?php if($rowUser['emp_image'] != '') {
+                    <img src="./asset/emp_img/<?php if($rowUser['emp_image'] != '') {
                             echo $rowUser['emp_image'];
                         } else {
                             echo 'user-defult.png';
@@ -117,7 +117,7 @@ $conDate = date('d').' '.$month[date('m')].', '.date('Y');
                 <div class="header__menu">
                     <ul>
                         <li><a href="#profile"><i class="fa-regular fa-user"></i>Profile</a></li>
-                        <li><a href="./logout.php"><i class="fa-solid fa-door-open"></i>Log out</a></li>
+                        <li><a href="./content/logout.php"><i class="fa-solid fa-door-open"></i>Log out</a></li>
                     </ul>
                 </div>
                 <span class="header__toggle"><i class="fa-solid fa-caret-down"></i></span>
@@ -125,9 +125,10 @@ $conDate = date('d').' '.$month[date('m')].', '.date('Y');
         </div>
         <article class="content"></article>
     </main> 
-</body>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <script src="./script/Index.js?<?php echo time(); ?>"></script>
+    <script src="./asset/script/Index.js?<?php echo time(); ?>"></script>
+</body>
 </html>

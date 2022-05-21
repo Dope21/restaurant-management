@@ -103,7 +103,7 @@
                 } 
 
                     $.ajax({
-                        url : './order-query.php',
+                        url : './functions/order-query.php',
                         type: 'post',
                         data: { 
                             

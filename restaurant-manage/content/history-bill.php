@@ -205,7 +205,7 @@
         deleteSumit.click(()=>{ 
 
             $.ajax({
-                url : './history-query.php',
+                url : './functions/history-query.php',
                 type: 'post',
                 data: { 
 

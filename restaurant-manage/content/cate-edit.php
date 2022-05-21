@@ -10,7 +10,7 @@ $rowCate = mysqli_fetch_array($resultCate);
 ?>
 <div class="black-bg"></div>
 <div class="profile">
-    <form class="profile__input-wrapper" action="./category-query.php?cateID=<?php echo $_cateID; ?>" method="POST" enctype="multipart/form-data">
+    <form class="profile__input-wrapper" action="./functions/category-query.php?cateID=<?php echo $_cateID; ?>" method="POST" enctype="multipart/form-data">
         <div class="profile__input">
             <p class="profile__input-title">Category Name</p>
             <input type="text" class="profile__input-box" name="catename" value="<?php echo $rowCate['cate_name']?>">

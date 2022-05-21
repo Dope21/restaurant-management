@@ -123,7 +123,7 @@
             ?>
                 <div class="menu__item" data-id="<?php echo $rowMenu['menu_id'] ?>">
                     <div class="menu__img-wrapper">
-                        <img src="./menu_img/<?php if ($rowMenu['menu_image'] == '') {
+                        <img src="./asset/menu_img/<?php if ($rowMenu['menu_image'] == '') {
                             echo 'menu-defult.jpg';
                         } else {
                             echo $rowMenu['menu_image'];
@@ -197,7 +197,7 @@
                 } 
 
                     $.ajax({
-                    url : './menu-query.php',
+                    url : './functions/menu-query.php',
                     type: 'post',
                     data: { 
                         
@@ -277,7 +277,7 @@
 
                         // SEND VALUE TO SESSION CART
                         $.ajax({
-                            url: './cart.php',
+                            url: './functions/cart.php',
                             type: 'post',
                             data: { 
                                     insert: 'insert',
@@ -306,7 +306,7 @@
 
                         let menuDel = $(obj).data('id')
                         $.ajax({
-                            url: './cart.php',
+                            url: './functions/cart.php',
                             type: 'post',
                             data: { 
                                     delete: 'delete',
@@ -320,7 +320,7 @@
             // MENU ADD CART
             menuCart.click(()=>{
                 $.ajax({
-                    url: './cart.php',
+                    url: './functions/cart.php',
                     type: 'post',
                     data: { orderID: '<?php echo $_orderID ?>' },
                     success: (response)=>{

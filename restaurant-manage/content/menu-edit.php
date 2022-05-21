@@ -31,10 +31,10 @@ $rowMenu = mysqli_fetch_array($resultMenu);
     </div>    
 
     <a href="#menu" class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to menu</a>
-    <form class="menu__update-items" action="./menu-query.php?menuID=<?php echo $_menuID ?>" method="POST" enctype="multipart/form-data">
+    <form class="menu__update-items" action="./functions/menu-query.php?menuID=<?php echo $_menuID ?>" method="POST" enctype="multipart/form-data">
         <div class="menu__update-item">
             <div class="menu__update-image">
-                <img src="./menu_img/<?php if ($rowMenu['menu_image'] == ""){
+                <img src="./asset/menu_img/<?php if ($rowMenu['menu_image'] == ""){
                     echo 'menu-defult.jpg';
                 } else {
                     echo $rowMenu['menu_image'];
@@ -122,7 +122,7 @@ $rowMenu = mysqli_fetch_array($resultMenu);
 
         deleteSumit.click(()=>{
             $.ajax({
-                url : './menu-query.php',
+                url : './functions/menu-query.php',
                 type: 'post',
                 data: { 
 

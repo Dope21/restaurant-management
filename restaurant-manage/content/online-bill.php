@@ -162,7 +162,7 @@
 
         askSumit.click(()=>{
             $.ajax({
-                url : './online-query.php',
+                url : './functions/online-query.php',
                 type: 'post',
                 data: { 
 
@@ -171,9 +171,6 @@
                 
                 },
                 success: function(response){
-                    // module.removeClass('module-active')
-                    // moduleBg.removeClass('module__bg-active')
-                    // moduleAsk.removeClass('module__ask-active')
                     content.load('./content/online-print.php',{
                         billID: '<?php echo $billID ?>'
                     })   
@@ -195,7 +192,7 @@
 
         deleteSumit.click(()=>{
             $.ajax({
-                url : './online-query.php',
+                url : './functions/online-query.php',
                 type: 'post',
                 data: { 
 

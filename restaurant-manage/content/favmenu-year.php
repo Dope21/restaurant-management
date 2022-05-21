@@ -9,7 +9,6 @@
         </tr>
     <?php 
         $_year = $_POST['year'];
-        // echo $_year.'<br>';
 
         $sql_menu = "SELECT menu_name, 
                             SUM(order_details.menu_qt) AS menu_count

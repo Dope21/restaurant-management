@@ -24,7 +24,7 @@ $menuName = '';
     ?>  
                 <div class="menu__item" data-id="<?php echo $rowMenu['menu_id'] ?>">
                     <div class="menu__img-wrapper">
-                        <img src="./menu_img/<?php if ($rowMenu['menu_image'] == '') {
+                        <img src="./asset/menu_img/<?php if ($rowMenu['menu_image'] == '') {
                             echo 'menu-defult.jpg';
                         } else {
                             echo $rowMenu['menu_image'];
@@ -60,7 +60,7 @@ $menuName = '';
     ?>
                         <div class="menu__item" data-id="<?php echo $rowMenu['menu_id'] ?>">
                             <div class="menu__img-wrapper">
-                                <img src="./menu_img/<?php if ($rowMenu['menu_image'] == '') {
+                                <img src="./asset/menu_img/<?php if ($rowMenu['menu_image'] == '') {
                                     echo 'menu-defult.jpg';
                                 } else {
                                     echo $rowMenu['menu_image'];
@@ -97,7 +97,7 @@ $menuName = '';
     ?>
                         <div class="menu__item" data-id="<?php echo $rowMenu['menu_id'] ?>">
                             <div class="menu__img-wrapper">
-                                <img src="./menu_img/<?php if ($rowMenu['menu_image'] == '') {
+                                <img src="./asset/menu_img/<?php if ($rowMenu['menu_image'] == '') {
                                     echo 'menu-defult.jpg';
                                 } else {
                                     echo $rowMenu['menu_image'];
@@ -145,7 +145,7 @@ $menuName = '';
 
                     // SEND VALUE TO SESSION CART
                     $.ajax({
-                        url: './cart.php',
+                        url: './functions/cart.php',
                         type: 'post',
                         data: { 
                                 insert: 'insert',
@@ -178,7 +178,7 @@ $menuName = '';
 
                     let menuDel = $(obj).data('id')
                     $.ajax({
-                        url: './cart.php',
+                        url: './functions/cart.php',
                         type: 'post',
                         data: { 
                                 delete: 'delete',

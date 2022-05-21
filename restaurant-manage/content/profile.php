@@ -10,14 +10,14 @@ $rowPro = mysqli_fetch_array($resultPro);
 
 ?>
 <div class="black-bg"></div>
-<form class="profile" action="./employee-query.php?userID=<?php echo $_userID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
+<form class="profile" action="./functions/employee-query.php?userID=<?php echo $_userID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
     <div class="profile__name">
         <p><?php echo $rowPro['emp_fname'].' '.$rowPro['emp_lname']?></p>
     </div>
 
     <div class="profile__icon">
         <div class="profile__img">
-            <img src="./emp_img/<?php if($rowPro['emp_image'] != '') {
+            <img src="./asset/emp_img/<?php if($rowPro['emp_image'] != '') {
                 echo $rowPro['emp_image'];
             } else {
                 echo 'user-defult.png';

@@ -16,8 +16,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/main-style.css?<?php echo time(); ?>">
-    <link rel="shortcut icon" type="image/png" href="./favicon.svg">
+    <link rel="stylesheet" href="../asset/style/main-style.css?<?php echo time(); ?>">
+    <link rel="shortcut icon" type="image/png" href="../asset/favicon.svg">
     <title>Register</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
             <div class="bubble"></div>     
         </div>
 
-        <form action="./register-check.php" method="POST" class="regis__form">
+        <form action="../functions/register-check.php" method="POST" class="regis__form">
             <div class="regis__title">
                 <h1>CREATE YOUR ACCOUNT</h1>
             </div>

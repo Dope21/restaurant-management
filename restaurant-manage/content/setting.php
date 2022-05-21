@@ -35,7 +35,7 @@ $set = mysqli_fetch_array($query);
 
         settBtn.click(()=>{
             $.ajax({
-                url : './setting-query.php',
+                url : './functions/setting-query.php',
                 type: 'post',
                 data: { 
 

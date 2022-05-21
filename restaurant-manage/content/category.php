@@ -92,7 +92,7 @@
                 } 
 
                     $.ajax({
-                    url : './category-query.php',
+                    url : './functions/category-query.php',
                     type: 'post',
                     data: { 
                         
@@ -126,7 +126,7 @@
 
             deleteSumit.click(()=>{
                 $.ajax({
-                    url : './category-query.php',
+                    url : './functions/category-query.php',
                     type: 'post',
                     data: { 
                         

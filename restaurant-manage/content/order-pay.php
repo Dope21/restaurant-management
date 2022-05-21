@@ -20,7 +20,9 @@ $rowSet = mysqli_fetch_array($resultSet);
 
 ?>
 <div class="order">
-    <a href='#order' class="menu__update-back"><i class="fas fa-arrow-left"></i>Back to order
+    <a href='#order' class="menu__update-back">
+        <i class="fas fa-arrow-left"></i>
+        Back to order
     </a>
     <div class="bill" id="bill">
         <div class="bill__head">

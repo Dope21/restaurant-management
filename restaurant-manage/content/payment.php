@@ -21,7 +21,7 @@
         }
     ?>
         <div class="payment__img">
-            <img src="./payment_img/<?php echo $row['order_payment'] ?>" alt="">
+            <img src="./asset/payment_img/<?php echo $row['order_payment'] ?>" alt="">
         </div>
         
 </div>

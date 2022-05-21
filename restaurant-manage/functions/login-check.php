@@ -1,4 +1,4 @@
-<?php require_once("./database/connection.php") ?>    
+<?php require_once("../database/connection.php") ?>    
 <?php session_start() ?>
 <?php 
 
@@ -14,12 +14,10 @@
     $message = '';
     if (mysqli_num_rows($query) == 0) {
         $message = 'wrong username or password';
-        header('location: ./login.php?message='.$message);
+        header('location: ../content/login.php?message='.$message);
     } else {
         $_SESSION['userID'] = $row['emp_id'];
         $_SESSION['status'] = $row['emp_status'];
-        // echo $row['emp_status'];
-        header('location: ./index.php');
-
+        header('location: ../index.php');
     }
 ?>
