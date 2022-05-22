@@ -15,7 +15,7 @@ A Point of Sale (POS) web application for order management comes with a Bootstra
 
 ## Description
 
-This is the graduation project for my Diploma of Vocational Education.
+This is the graduation project for my Diploma of Vocational Education. While building this project, I learned how to design Data Flow Diagram and ER Diagram for my project, design the UI using Figma, and work with Relational Databases efficiently using SQL statements. 
 
 ## Scope
 
