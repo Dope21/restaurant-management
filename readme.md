@@ -2,22 +2,22 @@
 
 A Point of Sale (POS) web application for order management comes with a Bootstrap website to support online orders from customers.
 
-## Stack
-
-- [HTML5](https://www.w3schools.com/html/) - The standard markup language for Web pages.
-- [Bootstrap 5](https://getbootstrap.com/) - A CSS Framework for developing responsive websites.
-- [SCSS](https://sass-lang.com/) - An extension to CSS which adds nested rules, variables, selector, etc.
-- [PHP](https://www.php.net/) - A scripting language that is especially suited for web development
-- [MySql](https://www.mysql.com/) - A relational database management system based on SQL.
-- [jQuery](https://jquery.com/) - A JavaScript library to make HTML DOM elements easier to access.
-- [Chart.js](https://www.chartjs.org/) - A free JavaScript library for making HTML-based charts.
-- [DataTable.js](https://datatables.net/) - A plug-in for jQuery that adds advanced features to HTML table.
-
 ## Description
 
 This is the graduation project for my Diploma of Vocational Education. While building this project, I learned how to design Data Flow Diagram and ER Diagram for my project, design the UI using Figma, and work with Relational Databases efficiently using SQL statements. 
 
-## Scope
+## Stack
+
+- [Bootstrap 5](https://getbootstrap.com/) - Only using this to built the restaurant website
+- [HTML5](https://www.w3schools.com/html/) - The standard markup language for Web pages.
+- [SCSS](https://sass-lang.com/) - An extension to CSS which adds nested rules, variables, selector, etc.
+- [PHP](https://www.php.net/) - A scripting language that uses for communicating with the Database.
+- [MySql](https://www.mysql.com/) - A relational database management system based on SQL.
+- [jQuery](https://jquery.com/) - Create animation with CSS and loading content without refreshing the page.
+- [Chart.js](https://www.chartjs.org/) - Making a beautiful chart and animation to display the Sales report.
+- [DataTable.js](https://datatables.net/) - A plug-in for jQuery that adds advanced features to HTML table.
+
+## Project scope
 
 ### Management System
 - **Admin**
@@ -51,6 +51,12 @@ This is the graduation project for my Diploma of Vocational Education. While bui
   - Recived order
 
 ## Design
-- management system
 
-- website
+### Management system
+
+![Home-Page](asset/design/management/home.png)
+![Mixing-Pages](asset/design/management/mixing.jpg)
+
+### Website
+
+![Home-Page](asset/design/website/1.png)
