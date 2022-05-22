@@ -52,11 +52,14 @@ This is the graduation project for my Diploma of Vocational Education. While bui
 
 ## Design
 
-### Management system
+### Management System
 
 ![Home-Page](asset/design/management/home.png)
-![Mixing-Pages](asset/design/management/mixing.jpg)
+![Mixing-Pages-1](asset/design/management/mixing-1.png)
+![Mixing-Pages-2](asset/design/management/mixing-2.png)
 
 ### Website
 
 ![Home-Page](asset/design/website/1.png)
+![Home-Page-Full](asset/design/website/2.png)
+![Mixing-Pages](asset/design/website/mixing.png)
