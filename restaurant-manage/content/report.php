@@ -336,6 +336,10 @@
             reportContent.load('./content/report-date.php',{
                 date: date.val()
             })
+
+            reportMenu.load('./content/favmenu-date.php',{
+                date: date.val()
+            })
         })
 
         $(document).ajaxStop(()=>{
