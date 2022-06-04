@@ -2,10 +2,10 @@
 <?php session_start() ?>
 <?php
 
-$_userID = '';
-if (isset($_SESSION['userID'])) {    
-    $_userID = $_SESSION['userID'];
-    $sqlUser = "SELECT * FROM employee WHERE emp_id = '$_userID'";
+$_empID = '';
+if (isset($_SESSION['empID'])) {    
+    $_empID = $_SESSION['empID'];
+    $sqlUser = "SELECT * FROM employee WHERE emp_id = '$_empID'";
     $resultUser = mysqli_query($conn, $sqlUser);
     $rowUser = mysqli_fetch_array($resultUser);
 } else {

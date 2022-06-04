@@ -16,7 +16,7 @@
         $message = 'wrong username or password';
         header('location: ../content/login.php?message='.$message);
     } else {
-        $_SESSION['userID'] = $row['emp_id'];
+        $_SESSION['empID'] = $row['emp_id'];
         $_SESSION['status'] = $row['emp_status'];
         header('location: ../index.php');
     }

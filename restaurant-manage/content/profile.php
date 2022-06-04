@@ -2,15 +2,15 @@
 <?php session_start() ?>
 <?php 
 
-$_userID = $_SESSION['userID'];
-$sqlPro = "SELECT * FROM employee WHERE emp_id = '$_userID'";
+$_empID = $_SESSION['empID'];
+$sqlPro = "SELECT * FROM employee WHERE emp_id = '$_empID'";
 
 $resultPro = mysqli_query($conn, $sqlPro);
 $rowPro = mysqli_fetch_array($resultPro);
 
 ?>
 <div class="black-bg"></div>
-<form class="profile" action="./functions/employee-query.php?userID=<?php echo $_userID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
+<form class="profile" action="./functions/employee-query.php?empID=<?php echo $_empID; ?>&fromprofile=1" method="POST" enctype="multipart/form-data">
     <div class="profile__name">
         <p><?php echo $rowPro['emp_fname'].' '.$rowPro['emp_lname']?></p>
     </div>

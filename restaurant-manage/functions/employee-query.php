@@ -18,14 +18,14 @@ if ($_POST['order'] == 'add'){
 
 if ($_POST['order'] == 'delete') {
     
-    $_userID = $_POST['deleteID'];
+    $_empID = $_POST['deleteID'];
 
-    $sql = "DELETE FROM employee WHERE emp_id = '$_userID'";
+    $sql = "DELETE FROM employee WHERE emp_id = '$_empID'";
 }
 
 if ($_POST['order'] == 'Update') {
     //VARIABLE FOR UPDATE
-    $_userID = $_GET['userID'];
+    $_empID = $_GET['empID'];
 
     $_fname = $_POST['fname'];
     $_lname = $_POST['lname'];
@@ -37,16 +37,6 @@ if ($_POST['order'] == 'Update') {
     $_image = $_FILES['image']['name'];
     $path = '../asset/emp_img';
 
-    // echo $_fname.'<br>';
-    // echo $_lname.'<br>';
-    // echo $_username.'<br>';
-    // echo $_password.'<br>';
-    // echo $_address.'<br>';
-    // echo $_number.'<br>';
-    // echo $_status.'<br>';
-    // echo $_image.'<br>';
-    // echo $path.'<br>';
-
     if ($_image == "" ) {
         $sql = "UPDATE employee SET
                 emp_fname = '$_fname',
@@ -56,7 +46,7 @@ if ($_POST['order'] == 'Update') {
                 emp_address = '$_address',
                 emp_number = '$_number',
                 emp_status = '$_status'
-                WHERE emp_id = '$_userID'";
+                WHERE emp_id = '$_empID'";
     } else {
         $sql = "UPDATE employee SET
                 emp_fname = '$_fname',
@@ -67,7 +57,7 @@ if ($_POST['order'] == 'Update') {
                 emp_number = '$_number',
                 emp_status = '$_status',
                 emp_image = '$_image'
-                WHERE emp_id = '$_userID'";
+                WHERE emp_id = '$_empID'";
                 copy($_FILES["image"]["tmp_name"],"$path$_image");
     }
 
