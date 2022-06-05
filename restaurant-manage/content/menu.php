@@ -1,7 +1,8 @@
 <?php require_once('../database/connection.php'); ?>
 <?php 
-
-    unset($_SESSION['cart']);
+    if (isset($_SESSION['cart'])) {
+        unset($_SESSION['cart']);
+    }
     $sqlCate = "SELECT * FROM category";
     $resultCate = mysqli_query($conn, $sqlCate);
 
@@ -9,7 +10,6 @@
     if (isset($_POST['orderID'])) {
         $_orderID = $_POST['orderID'];
     }
-
 ?>
 <div class="black-bg"></div>
 <div class="menu">

@@ -1,7 +1,7 @@
+<?php ob_start(); ?>
 <?php require_once("../database/connection.php") ?>    
 <?php session_start() ?>
 <?php 
-
     $_user = $_POST['user'];
     $_pass = $_POST['pass'];
 

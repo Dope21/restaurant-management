@@ -1,5 +1,5 @@
-<?php require_once("./database/connection.php") ?>
 <?php session_start() ?>
+<?php require_once("./database/connection.php") ?>
 <?php
 
 $_empID = '';
@@ -9,7 +9,7 @@ if (isset($_SESSION['empID'])) {
     $resultUser = mysqli_query($conn, $sqlUser);
     $rowUser = mysqli_fetch_array($resultUser);
 } else {
-    header('location: ./login.php');
+    header('location: ./content/login.php');
 }
 date_default_timezone_set("Asia/Bangkok");
 

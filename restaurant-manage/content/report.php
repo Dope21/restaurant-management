@@ -1,5 +1,5 @@
-<?php require_once("../database/connection.php") ?>     
 <?php session_start() ?>
+<?php require_once("../database/connection.php") ?>     
 <div class="black-bg"></div>
 <?php 
 
